@@ -1,1 +1,1 @@
-# VisualizingAmazonReviews
+# Visualizing Amazon Reviews
