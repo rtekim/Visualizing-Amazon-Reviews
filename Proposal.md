@@ -68,6 +68,7 @@ Detail view showing the novel in question. The various pieces that were shown in
 
 * Cycle through a variety of book covers for individual views of books
 * Miniature detail view showing information about the book that the mouse is hovering over in either view
+* Word cloud specific to each book of all of the reviews from each book
 
 ## Project Schedule
 
