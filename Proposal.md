@@ -9,14 +9,14 @@ Project Repository: https://github.com/rtekim/Visualizing-Amazon-Reviews
 Humans have told stories to one another for thousands of years. With the advent of the written word (and later the eBook) storytelling transcended its oral roots and was written down. Stories in their modern form exist in written books known as "novels." A variety of novels have impacted people over the past couple centuries, and we wish to explore those novels and their representation in Amazon Book Reviews.
 
 ## Project Objectives
-* Is there a difference between ratings of book vs ebook for the same title?
->>Knowing if there is a difference between how users rate a book vs an ebook could help determine the differences in user book preferences to users who prefer a book or ebook versus the other. 
-* Does having a verified purchase produce a more helpful review? Do verified users ratings differ from non-verified ratings?
->>This could help identify if users trust non-verified ratings. This could also help to explore if non-verified ratings can be trusted. 
-* Is there a time correlation with helpfulness of Amazon book reviews? Is there a time correlation to when reviews are created?
->>Knowing trends about when users submit reviews, could help narrow a time period for users looking for new books based on reviews.
-* What themes from a book can be identified by aggregating the reviews?
->>Identifying themes in book reviews could help users identity books they might be interested in.
+* **Is there a difference between ratings of book vs ebook for the same title?**
+Knowing if there is a difference between how users rate a book vs an ebook could help determine the differences in user book preferences to users who prefer a book or ebook versus the other. 
+* **Does having a verified purchase produce a more helpful review? Do verified users ratings differ from non-verified ratings?**
+This could help identify if users trust non-verified ratings. This could also help to explore if non-verified ratings can be trusted. 
+* **Is there a time correlation with helpfulness of Amazon book reviews? Is there a time correlation to when reviews are created?**
+Knowing trends about when users submit reviews, could help narrow a time period for users looking for new books based on reviews.
+* **What themes from a book can be identified by aggregating the reviews?**
+Identifying themes in book reviews could help users identity books they might be interested in.
 
 ## Data
 
