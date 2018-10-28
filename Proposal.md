@@ -16,11 +16,11 @@ This could help identify if users trust non-verified ratings. This could also he
 * **Is there a time correlation with helpfulness of Amazon book reviews? Is there a time correlation to when reviews are created?**
 Knowing trends about when users submit reviews, could help narrow a time period for users looking for new books based on reviews.
 * **What themes from a book can be identified by aggregating the reviews?**
-Identifying themes in book reviews could help users identity books they might be interested in.
+Identifying themes in book reviews could help users’ identity books they might be interested in.
 
 ## Data
 
-We are using the Amazon Customer Reviews Dataset, specifically the books and ebooks files. We will be selecing books that are found on the Top 100 Novels put together by Time Magazine. 
+We are using the Amazon Customer Reviews Dataset, specifically the books and ebooks files. We will be selecting books that are found on the Top 100 Novels put together by Time Magazine. 
 
 * [Customer Reviews Dataset](https://s3.amazonaws.com/amazon-reviews-pds/readme.html)
 * [Top 100 Novels](http://entertainment.time.com/2005/10/16/all-time-100-novels/slide/all/)
@@ -35,7 +35,7 @@ We will need to filter out the Amazon Customer Reviews Dataset to only include b
 
 ![Overview](figs/sketch1.png)
 
-Scatterplot of book reviews. Initially, the x-axis encodes Review Date, the y-axis encodes the Total number of Votes and the color of the mark encodes a verified purchase or not. The y-axis can be changed to encode the Total number of helpful votes or the percentage of helpful votes. The color can be changed to encode star rating or country code or book vs ebook. When a point on the scatterplot is selected, two charts are filled up. One chart displays the book title of the review selected and lists all of the reviews for that book. This chart displays total votes, helpful votes, rating, and date for each review. The other chart displays the reviewer who's review was selected in the scatterplot. This chart displays a row for each book this customer has reviewed along with columns for total votes, helpful votes, rating, and date. Multiple points can be selected on the scatterplot and this will add more rows to both charts. Clicking on a point after it is selected removes the associated rows from the charts.
+Scatterplot of book reviews. Initially, the x-axis encodes Review Date, the y-axis encodes the Total number of Votes and the color of the mark encodes a verified purchase or not. The y-axis can be changed to encode the Total number of helpful votes or the percentage of helpful votes. The color can be changed to encode star rating or country code or book vs ebook. When a point on the scatterplot is selected, two charts are filled up. One chart displays the book title of the review selected and lists all of the reviews for that book. This chart displays total votes, helpful votes, rating, and date for each review. The other chart displays the reviewer whose review was selected in the scatterplot. This chart displays a row for each book this customer has reviewed along with columns for total votes, helpful votes, rating, and date. Multiple points can be selected on the scatterplot and this will add more rows to both charts. Clicking on a point after it is selected removes the associated rows from the charts.
 
 ### Sketch 2
 
@@ -44,7 +44,7 @@ Scatterplot of book reviews. Initially, the x-axis encodes Review Date, the y-ax
 
 Tabular layout where each column is its own visualization. There is a row for each book. The columns are:
 * Reviews: A bar representing the total number of reviews.
-* Date Distrubution: A bar chart plotting reviews per a year.
+* Date Distribution: A bar chart plotting reviews per a year.
 * Helpful Votes: A bar representing the total number of helpful votes.
 * Total Votes: A bar representing the total votes.
 * Percent Helpful: A bar representing the fraction of votes that were helpful.
@@ -63,7 +63,7 @@ Detail view showing the novel in question. The various pieces that were shown in
 
 ### Final Visualization
 
-For the final visualization we are choosing to incorporate the following features from our sketches.
+For the final visualization, we are choosing to incorporate the following features from our sketches.
 * Scatterplot view from Sketch 1.
 * Tabular Layout from Sketch 2.
 * The detailed view described in Sketch 3.
