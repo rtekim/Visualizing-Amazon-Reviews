@@ -10,13 +10,13 @@ Humans have told stories to one another for thousands of years. With the advent 
 
 ## Project Objectives
 * Is there a difference between ratings of book vs ebook for the same title?
-.. Knowing if there is a difference between how users rate a book vs an ebook could help determine the differences in user book preferences to users who prefer a book or ebook versus the other. 
+>>Knowing if there is a difference between how users rate a book vs an ebook could help determine the differences in user book preferences to users who prefer a book or ebook versus the other. 
 * Does having a verified purchase produce a more helpful review? Do verified users ratings differ from non-verified ratings?
-.. This could help identify if users trust non-verified ratings. This could also help to explore if non-verified ratings can be trusted. 
+>>This could help identify if users trust non-verified ratings. This could also help to explore if non-verified ratings can be trusted. 
 * Is there a time correlation with helpfulness of Amazon book reviews? Is there a time correlation to when reviews are created?
-.. Knowing trends about when users submit reviews, could help narrow a time period for users looking for new books based on reviews.
+>>Knowing trends about when users submit reviews, could help narrow a time period for users looking for new books based on reviews.
 * What themes from a book can be identified by aggregating the reviews?
-.. Identifying themes in book reviews could help users identity books they might be interested in.
+>>Identifying themes in book reviews could help users identity books they might be interested in.
 
 ## Data
 
