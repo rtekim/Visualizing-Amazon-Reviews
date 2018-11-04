@@ -1,0 +1,602 @@
+[
+  {
+    "Title": 1984,
+    "ImageURL": "1984",
+    "GoogleId": "kotPYEqx7kMC",
+    "TotalReviews": 1678
+  },
+  {
+    "Title": "A_Clockwork_Orange",
+    "ImageURL": "clockworkorange",
+    "GoogleId": "fVnqpwphxeAC",
+    "TotalReviews": 804
+  },
+  {
+    "Title": "A_Dance_to_the_Music_of_Time",
+    "ImageURL": "dance",
+    "GoogleId": "80IOAQAAMAAJ",
+    "TotalReviews": 0
+  },
+  {
+    "Title": "A_Death_in_the_Family",
+    "ImageURL": "deathFamily",
+    "GoogleId": "KXZeAzZHi3wC",
+    "TotalReviews": 93
+  },
+  {
+    "Title": "A_Handful_of_Dust",
+    "ImageURL": "handful",
+    "GoogleId": "JAv-ngEACAAJ",
+    "TotalReviews": 81
+  },
+  {
+    "Title": "A_House_for_Mr._Biswas",
+    "ImageURL": "mrbiswas",
+    "GoogleId": "LzgrAQAAIAAJ",
+    "TotalReviews": 63
+  },
+  {
+    "Title": "A_Passage_to_India",
+    "ImageURL": "passageindia",
+    "GoogleId": "9ULVCwAAQBAJ",
+    "TotalReviews": 169
+  },
+  {
+    "Title": "All_the_King's_Men",
+    "ImageURL": "kingsmen",
+    "GoogleId": "prTKs7YY11EC",
+    "TotalReviews": 320
+  },
+  {
+    "Title": "American_Pastoral",
+    "ImageURL": "pastoral",
+    "GoogleId": "7PbWX0gCQnIC",
+    "TotalReviews": 44
+  },
+  {
+    "Title": "An_American_Tragedy",
+    "ImageURL": "americantragedy",
+    "GoogleId": "uEoe8LcTWwkC",
+    "TotalReviews": 20
+  },
+  {
+    "Title": "Animal_Farm",
+    "ImageURL": "animalfarm",
+    "GoogleId": "Oou-DQAAQBAJ",
+    "TotalReviews": 650
+  },
+  {
+    "Title": "Appointment_in_Samarra",
+    "ImageURL": "appointment",
+    "GoogleId": "S0YFAQAAIAAJ",
+    "TotalReviews": 17
+  },
+  {
+    "Title": "Are_You_There_God",
+    "ImageURL": "areyouthere",
+    "GoogleId": "3qVmxVDvXM8C",
+    "TotalReviews": 418
+  },
+  {
+    "Title": "At_Swim-Two-Birds",
+    "ImageURL": "atswim",
+    "GoogleId": "9QsTkUnmTJQC",
+    "TotalReviews": 5
+  },
+  {
+    "Title": "Atonement",
+    "ImageURL": "atonement",
+    "GoogleId": "NKasHN-C2_4C",
+    "TotalReviews": 260
+  },
+  {
+    "Title": "Beloved",
+    "ImageURL": "beloved",
+    "GoogleId": "sfmp6gjZGP8C",
+    "TotalReviews": 850
+  },
+  {
+    "Title": "Blood_Meridian",
+    "ImageURL": "meridian",
+    "GoogleId": "s-QzccStux4C",
+    "TotalReviews": 18
+  },
+  {
+    "Title": "Brideshead_Revisited",
+    "ImageURL": "brideshead",
+    "GoogleId": "CSE2P06rVUoC",
+    "TotalReviews": 221
+  },
+  {
+    "Title": "Call_It_Sleep",
+    "ImageURL": "sleep",
+    "GoogleId": "-Z7WAAAAQBAJ",
+    "TotalReviews": 1
+  },
+  {
+    "Title": "Catch-22",
+    "ImageURL": "catch",
+    "GoogleId": "Xfze51E7TEoC",
+    "TotalReviews": 763
+  },
+  {
+    "Title": "Death_Comes_for_the_Archbishop",
+    "ImageURL": "archbishop",
+    "GoogleId": "VK4m_0zGHjYC",
+    "TotalReviews": 57
+  },
+  {
+    "Title": "Deliverance",
+    "ImageURL": "deliverance",
+    "GoogleId": "PDcO5mSaYzwC",
+    "TotalReviews": 58
+  },
+  {
+    "Title": "Dog_Soldiers",
+    "ImageURL": "dogsoldiers",
+    "GoogleId": "JFcIFMdEGBMC",
+    "TotalReviews": 67
+  },
+  {
+    "Title": "Falconer",
+    "ImageURL": "falconer",
+    "GoogleId": "s1IGgvLaIjUC",
+    "TotalReviews": 32
+  },
+  {
+    "Title": "Go_Tell_it_on_the_Mountain",
+    "ImageURL": "gotell",
+    "GoogleId": "UY6jJNIz8vQC",
+    "TotalReviews": 0
+  },
+  {
+    "Title": "Gone_With_the_Wind",
+    "ImageURL": "gone",
+    "GoogleId": "5GFlDwAAQBAJ",
+    "TotalReviews": 322
+  },
+  {
+    "Title": "Gravity's_Rainbow",
+    "ImageURL": "rainbow",
+    "GoogleId": "GGPm4I3BbxAC",
+    "TotalReviews": 59
+  },
+  {
+    "Title": "Herzog",
+    "ImageURL": "herzog",
+    "GoogleId": "uxjjjwC7y5IC",
+    "TotalReviews": 14
+  },
+  {
+    "Title": "Housekeeping",
+    "ImageURL": "housekeeping",
+    "GoogleId": "Vay6CQAAQBAJ",
+    "TotalReviews": 15
+  },
+  {
+    "Title": "I,_Claudius",
+    "ImageURL": "claudius",
+    "GoogleId": "ZqsaAwAAQBAJ",
+    "TotalReviews": 12
+  },
+  {
+    "Title": "Infinite_Jest",
+    "ImageURL": "infinite",
+    "GoogleId": "Nhe2yvx6hP8C",
+    "TotalReviews": 497
+  },
+  {
+    "Title": "Invisible_Man",
+    "ImageURL": "invisible",
+    "GoogleId": "iSrI-BQqFf0C",
+    "TotalReviews": 403
+  },
+  {
+    "Title": "Light_in_August",
+    "ImageURL": "august",
+    "GoogleId": "nwy8akU-nJUC",
+    "TotalReviews": 133
+  },
+  {
+    "Title": "Lolita",
+    "ImageURL": "lolita",
+    "GoogleId": "utvB0I_0SZsC",
+    "TotalReviews": 653
+  },
+  {
+    "Title": "Lord_of_the_Flies",
+    "ImageURL": "lord",
+    "GoogleId": "3KRdJZbAN_sC",
+    "TotalReviews": 1737
+  },
+  {
+    "Title": "Loving",
+    "ImageURL": "loving",
+    "GoogleId": "7CUwCwAAQBAJ",
+    "TotalReviews": 66
+  },
+  {
+    "Title": "Lucky_Jim",
+    "ImageURL": "luckyjim",
+    "GoogleId": "yiTdOtvr2WAC",
+    "TotalReviews": 72
+  },
+  {
+    "Title": "Midnight's_Children",
+    "ImageURL": "midnight",
+    "GoogleId": "IT6vfrb5fNcC",
+    "TotalReviews": 221
+  },
+  {
+    "Title": "Money",
+    "ImageURL": "money",
+    "GoogleId": "nQK2cT7VgfoC",
+    "TotalReviews": 97
+  },
+  {
+    "Title": "Mrs._Dalloway",
+    "ImageURL": "dalloway",
+    "GoogleId": "NMt1BgAAQBAJ",
+    "TotalReviews": 242
+  },
+  {
+    "Title": "Naked_Lunch",
+    "ImageURL": "lunch",
+    "GoogleId": "i5OUt248wEACAAJ",
+    "TotalReviews": 248
+  },
+  {
+    "Title": "Native_Son",
+    "ImageURL": "native",
+    "GoogleId": "IE5yW9MTML4C",
+    "TotalReviews": 262
+  },
+  {
+    "Title": "Neuromancer",
+    "ImageURL": "neuromancer",
+    "GoogleId": "Bd_UZAdvUDIC",
+    "TotalReviews": 587
+  },
+  {
+    "Title": "Never_Let_Me_Go",
+    "ImageURL": "never",
+    "GoogleId": "l2tgn7DGaP4C",
+    "TotalReviews": 1195
+  },
+  {
+    "Title": "On_the_Road",
+    "ImageURL": "road",
+    "GoogleId": "4w1vQRkAVxYC",
+    "TotalReviews": 400
+  },
+  {
+    "Title": "One_Flew_Over_the_Cuckoo's_Nest",
+    "ImageURL": "cuckoo",
+    "GoogleId": "KhRvDQAAQBAJ",
+    "TotalReviews": 517
+  },
+  {
+    "Title": "Pale_Fire",
+    "ImageURL": "pale",
+    "GoogleId": "F1UVD-6MUAMC",
+    "TotalReviews": 97
+  },
+  {
+    "Title": "Play_It_As_It_Lays",
+    "ImageURL": "play",
+    "GoogleId": "OEDFDgAAQBAJ",
+    "TotalReviews": 0
+  },
+  {
+    "Title": "Portnoy's_Complaint",
+    "ImageURL": "portnoy",
+    "GoogleId": "k8jJbm5WB8kC",
+    "TotalReviews": 184
+  },
+  {
+    "Title": "Possession",
+    "ImageURL": "possession",
+    "GoogleId": "Cwxow1CdFdIC",
+    "TotalReviews": 630
+  },
+  {
+    "Title": "Rabbit,_Run",
+    "ImageURL": "rabbit",
+    "GoogleId": "AO2mfwZskwkC",
+    "TotalReviews": 228
+  },
+  {
+    "Title": "Ragtime",
+    "ImageURL": "ragtime",
+    "GoogleId": "-3bLQxV_tr4C",
+    "TotalReviews": 83
+  },
+  {
+    "Title": "Red_Harvest",
+    "ImageURL": "harvest",
+    "GoogleId": "nOoX0ViUlPgC",
+    "TotalReviews": 101
+  },
+  {
+    "Title": "Revolutionary_Road",
+    "ImageURL": "revolutionary",
+    "GoogleId": "aaf6k3DWcSAC",
+    "TotalReviews": 192
+  },
+  {
+    "Title": "Slaughterhouse_Five",
+    "ImageURL": "slaughterhouse",
+    "GoogleId": "pWyLDQAAQBAJ",
+    "TotalReviews": 6
+  },
+  {
+    "Title": "Snow_Crash",
+    "ImageURL": "snow",
+    "GoogleId": "RMd3GpIFxcUC",
+    "TotalReviews": 807
+  },
+  {
+    "Title": "The_Adventures_of_Augie_March",
+    "ImageURL": "augie",
+    "GoogleId": "OaR1nf2PNe8C",
+    "TotalReviews": 1
+  },
+  {
+    "Title": "The_Assistant",
+    "ImageURL": "assistant",
+    "GoogleId": "-4AEdIzjlPUC",
+    "TotalReviews": 202
+  },
+  {
+    "Title": "The_Berlin_Stories",
+    "ImageURL": "berlin",
+    "GoogleId": "0cZbOOe62o4C",
+    "TotalReviews": 55
+  },
+  {
+    "Title": "The_Big_Sleep",
+    "ImageURL": "bigsleep",
+    "GoogleId": "F610Ym0iZUIC",
+    "TotalReviews": 55
+  },
+  {
+    "Title": "The_Blind_Assassin",
+    "ImageURL": "assassin",
+    "GoogleId": "6AXhWb6UI-8C",
+    "TotalReviews": 187
+  },
+  {
+    "Title": "The_Bridge_of_San_Luis_Rey",
+    "ImageURL": "sanluis",
+    "GoogleId": "T0kDU5IXOPEC",
+    "TotalReviews": 12
+  },
+  {
+    "Title": "The_Catcher_in_the_Rye",
+    "ImageURL": "catcher",
+    "GoogleId": "yEP2RAAACAAJ",
+    "TotalReviews": 3407
+  },
+  {
+    "Title": "The_Confessions_of_Nat_Turner",
+    "ImageURL": "turner",
+    "GoogleId": "9UsLNxq2vk8C",
+    "TotalReviews": 81
+  },
+  {
+    "Title": "The_Corrections",
+    "ImageURL": "corrections",
+    "GoogleId": "FodGfz5li5wC",
+    "TotalReviews": 702
+  },
+  {
+    "Title": "The_Crying_of_Lot_49",
+    "ImageURL": "crying",
+    "GoogleId": "IVDEZ4v6eG0C",
+    "TotalReviews": 49
+  },
+  {
+    "Title": "The_Day_of_the_Locust",
+    "ImageURL": "locust",
+    "GoogleId": "ewk-BQAAQBAJ",
+    "TotalReviews": 33
+  },
+  {
+    "Title": "The_Death_of_the_Heart",
+    "ImageURL": "deathheart",
+    "GoogleId": "5JW3CQAAQBAJ",
+    "TotalReviews": 33
+  },
+  {
+    "Title": "The_French_Lieutenant's_Woman",
+    "ImageURL": "lieutenant",
+    "GoogleId": "bQT-1VUxmUcC",
+    "TotalReviews": 90
+  },
+  {
+    "Title": "The_Golden_Notebook",
+    "ImageURL": "notebook",
+    "GoogleId": "sr_8066WKzMC",
+    "TotalReviews": 6
+  },
+  {
+    "Title": "The_Grapes_of_Wrath",
+    "ImageURL": "grapes",
+    "GoogleId": "bhJgd3hGdxQC",
+    "TotalReviews": 793
+  },
+  {
+    "Title": "The_Great_Gatsby",
+    "ImageURL": "gatsby",
+    "GoogleId": "iXn5U2IzVH0C",
+    "TotalReviews": 4739
+  },
+  {
+    "Title": "The_Heart_is_A_Lonely_Hunter",
+    "ImageURL": "hunter",
+    "GoogleId": "iARl5C-ye-AC",
+    "TotalReviews": 0
+  },
+  {
+    "Title": "The_Heart_of_the_Matter",
+    "ImageURL": "matter",
+    "GoogleId": "j-BUDwAAQBAJ",
+    "TotalReviews": 21
+  },
+  {
+    "Title": "The_Lion,_The_Witch_and_the_Wardrobe",
+    "ImageURL": "lion",
+    "GoogleId": "TZWHNzyi9Z8C",
+    "TotalReviews": 0
+  },
+  {
+    "Title": "The_Lord_of_the_Rings",
+    "ImageURL": "rings",
+    "GoogleId": "yl4dILkcqm4C",
+    "TotalReviews": 1242
+  },
+  {
+    "Title": "The_Man_Who_Loved_Children",
+    "ImageURL": "children",
+    "GoogleId": "pxIn-_rOY0gC",
+    "TotalReviews": 0
+  },
+  {
+    "Title": "The_Moviegoer",
+    "ImageURL": "moviegoer",
+    "GoogleId": "Z0dH1DLiSTEC",
+    "TotalReviews": 154
+  },
+  {
+    "Title": "The_Painted_Bird",
+    "ImageURL": "paintedbird",
+    "GoogleId": "6fLBknf7c6sC",
+    "TotalReviews": 149
+  },
+  {
+    "Title": "The_Power_and_the_Glory",
+    "ImageURL": "power",
+    "GoogleId": "FXg2AGNflFwC",
+    "TotalReviews": 19
+  },
+  {
+    "Title": "The_Prime_of_Miss_Jean_Brodie",
+    "ImageURL": "brodie",
+    "GoogleId": "BFLMLH_XqngC",
+    "TotalReviews": 11
+  },
+  {
+    "Title": "The_Recognitions",
+    "ImageURL": "recognitions",
+    "GoogleId": "lBxB5scw1KIC",
+    "TotalReviews": 3
+  },
+  {
+    "Title": "The_Sheltering_Sky",
+    "ImageURL": "sheltering",
+    "GoogleId": "jeOfPwAACAAJ",
+    "TotalReviews": 196
+  },
+  {
+    "Title": "The_Sot-Weed_Factor",
+    "ImageURL": "sot",
+    "GoogleId": "8Ym7DAEACAAJ",
+    "TotalReviews": 55
+  },
+  {
+    "Title": "The_Sound_and_the_Fury",
+    "ImageURL": "sound",
+    "GoogleId": "_chqDwAAQBAJ",
+    "TotalReviews": 19
+  },
+  {
+    "Title": "The_Sportswriter",
+    "ImageURL": "sportswriter",
+    "GoogleId": "hOrajJLlBFYC",
+    "TotalReviews": 13
+  },
+  {
+    "Title": "The_Spy_Who_Came_in_From_the_Cold",
+    "ImageURL": "spy",
+    "GoogleId": "uwJCBAAAQBAJ",
+    "TotalReviews": 50
+  },
+  {
+    "Title": "The_Sun_Also_Rises",
+    "ImageURL": "sun",
+    "GoogleId": "-OBSAgAAQBAJ",
+    "TotalReviews": 695
+  },
+  {
+    "Title": "Their_Eyes_Were_Watching_God",
+    "ImageURL": "watchinggod",
+    "GoogleId": "VpAl-clyEz0C",
+    "TotalReviews": 527
+  },
+  {
+    "Title": "Things_Fall_Apart",
+    "ImageURL": "fallapart",
+    "GoogleId": "gGOKswEACAAJ",
+    "TotalReviews": 867
+  },
+  {
+    "Title": "To_Kill_a_Mockingbird",
+    "ImageURL": "mockingbird",
+    "GoogleId": "-D8WBAAAQBAJ",
+    "TotalReviews": 2779
+  },
+  {
+    "Title": "To_the_Lighthouse",
+    "ImageURL": "lighthouse",
+    "GoogleId": "D03hGaIKrQwC",
+    "TotalReviews": 229
+  },
+  {
+    "Title": "Tropic_of_Cancer",
+    "ImageURL": "tropic",
+    "GoogleId": "M4YQBgAAQBAJ",
+    "TotalReviews": 219
+  },
+  {
+    "Title": "Ubik",
+    "ImageURL": "ubik",
+    "GoogleId": "ZEyn5Gl_sYUC",
+    "TotalReviews": 303
+  },
+  {
+    "Title": "Under_the_Net",
+    "ImageURL": "net",
+    "GoogleId": "mkG9MVjWVjoC",
+    "TotalReviews": 49
+  },
+  {
+    "Title": "Under_the_Volcano",
+    "ImageURL": "volcano",
+    "GoogleId": "gRC0BcnbdNMC",
+    "TotalReviews": 19
+  },
+  {
+    "Title": "Watchmen",
+    "ImageURL": "watchmen",
+    "GoogleId": "4flntAEACAAJ",
+    "TotalReviews": 1322
+  },
+  {
+    "Title": "White_Noise",
+    "ImageURL": "whitenoise",
+    "GoogleId": "IRFvDQAAQBAJ",
+    "TotalReviews": 135
+  },
+  {
+    "Title": "White_Teeth",
+    "ImageURL": "whiteteeth",
+    "GoogleId": "zZFlmid0HOYC",
+    "TotalReviews": 155
+  },
+  {
+    "Title": "Wide_Sargasso_Sea",
+    "ImageURL": "sargasso",
+    "GoogleId": "EBBylYGdeHkC",
+    "TotalReviews": 34
+  }
+]
