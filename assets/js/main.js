@@ -12,4 +12,3 @@ d3.json("assets/dataset/books/allbooks.json").then(data =>{
     let table = new Table(data);
     table.createTable();
 });
-
