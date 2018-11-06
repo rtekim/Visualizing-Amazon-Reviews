@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,46107918,RJ237M9KCG6KG,1400078776,813354201,Never Let Me Go,Books,4,0,0,N,Y,"Four Stars","Purchased this for my kid for her summer reading list for 11  th grade.",2015-08-31
 US,28723716,R1JO9LU6XWBL3Z,1400078776,813354201,Never Let Me Go,Books,4,0,0,N,Y,"Four Stars","Great book! I love it!",2015-08-26
 US,28145790,RD1RAAIU3TDC5,1400078776,813354201,Never Let Me Go,Books,4,1,1,N,Y,"good story but I was left wanting more from the ...","good story but I was left wanting more from the overall plot.  a few unanswered questions is fine, but too many and you feel like the author could have taken the story further.",2015-08-20

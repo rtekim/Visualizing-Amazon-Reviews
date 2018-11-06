@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,12007864,R2L4AA6PX441T5,0375701230,91189139,A Death in the Family,Books,3,0,2,N,Y,"Sad","Sad",2014-10-09
 US,11336814,R18GAHMS49S77W,B000BC21FY,91189139,A Death in the Family,Books,3,0,3,N,Y,"Three Stars","My granddaughter Allison had to have this book for a class at her school...",2014-09-28
 US,44525800,RACEXKBX24AL7,0375701230,91189139,A Death in the Family,Books,2,2,11,N,Y,"A Let Down","I had to read this for my college history class, and I was super excited because the author and I share the same name, but I was very disappointed with this book. Perhaps it was not my type of book, but I had to make myself read it and found it quite dry and boring.",2012-08-04

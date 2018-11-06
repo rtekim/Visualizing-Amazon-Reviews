@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,35686260,R196FCTXTI1MBD,0679732268,161451712,Light in August,Books,4,0,1,N,Y,"one of the brilliant things about this book is the language employed and ...","one of the brilliant things about this book is the language employed and the layered, recurring viewpoints offered to various unfolding events.",2015-08-11
 US,42932261,R34SOCAYXN2S8,0679732268,161451712,Light in August,Books,5,0,1,N,Y,"Five Stars","Good book",2015-07-27
 US,28541095,R2VRTDT2X237I6,0679732268,161451712,Light in August,Books,2,0,2,N,Y,"Two Stars","boring as hell",2015-07-24

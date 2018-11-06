@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,38809987,RADS943YPP7JY,0452279070,956761338,Ragtime,Books,5,1,2,N,Y,"Five Stars","Wonderful writer who had a long and lovely life!!",2015-07-22
 US,49952264,R3CZC2CRR1QHWT,B001Z3B8UW,956761338,Ragtime,Books,5,1,1,N,Y,"WORK OF ART","RAGTIME is a work of art==one of a kind",2015-06-25
 US,24796716,R1N747YNYAIWVT,B001IDAJWM,956761338,Ragtime,Books,5,0,0,N,Y,"Five Stars","This a must-read to learn about the history of the early 20th century.",2014-10-20

@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,243851,RE76GYL8REY4D,0385474547,672855451,Things Fall Apart,Books,5,1,1,N,Y,"Five Stars","The book is in perfect conditions thankyou.",2015-08-30
 US,31382517,R1NRKHACQ8DCIJ,0385474547,672855451,Things Fall Apart,Books,5,0,1,N,Y,"Classic","Classic.  Tells of the negative impact of white people on so many societies around the world.",2015-08-20
 US,580505,RH5QYGASUETQH,0385474547,672855451,Things Fall Apart,Books,5,1,1,N,Y,"Really enjoyed the characters in this novel","Thought provoking.  Really enjoyed the characters in this novel, development was excellent-loved and hated them, felt I actually knew them.",2015-08-16

@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,4015315,R1QM7ZY9FG4VW2,B009O2XR0A,146114302,Native Son,Books,5,0,0,N,Y,"great book","Great services, excited to receive and read this book!",2015-08-22
 US,11732779,R38POFQD1GLR5S,B009O2XR0A,146114302,Native Son,Books,5,0,0,N,Y,"Five Stars","Great read.",2015-07-25
 US,49800853,R14JX44ZHU31IG,0061148504,146114302,Native Son,Books,5,0,0,N,Y,"Five Stars","Phenomenal! Must read.",2015-07-16

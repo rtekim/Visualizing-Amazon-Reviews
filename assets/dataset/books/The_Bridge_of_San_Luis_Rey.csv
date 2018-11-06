@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,38931050,R2CFQEFCCSG7HO,B004HECYRW,937627939,The Bridge of San Luis Rey,Books,4,0,0,N,Y,"Four Stars","An early edition is fantastic shape which I gifted to a friend who loved the book",2015-05-05
 US,45768452,R1K25N4256DPYU,1565119371,937627939,The Bridge of San Luis Rey,Books,5,1,1,N,N,"This is one of the best CD, what a great story and it will ...","This is one of the best CD, what a great story and it will make you think about life and it's destiny, thanks again.",2015-04-25
 US,17523638,R2WP0IYGPLNITT,1565112210,937627939,The Bridge of San Luis Rey,Books,4,0,1,N,N,"Four Stars","Enjoyable.",2014-09-17

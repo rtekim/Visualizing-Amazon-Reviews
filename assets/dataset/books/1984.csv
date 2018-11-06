@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,19259557,RUUGVA1J6XR52,B005B3F2RM,337991686,1984,Books,5,0,0,N,Y,"Having read book first in 1973 I am now seeing ...","Having read book first in 1973 I am now seeing this book not as metaphor, but reflection of what our world and society have become. Sadly I read this, but have hope that all are not mentally numb to this.",2015-08-29
 US,38431461,R2WOTRUXC9D229,1433202468,337991686,1984,Books,4,0,0,N,Y,"GOOD","GOOD",2015-08-28
 US,39859785,R2T0OEO5HJ50NO,0452284236,337991686,1984,Books,5,0,0,N,Y,"Five Stars","a clasic",2015-08-27

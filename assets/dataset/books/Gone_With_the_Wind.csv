@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,45474274,R3D903OP87CP3S,B009CUTC7G,716836572,Gone With the Wind,Books,5,0,0,N,N,"A book for the ages about the Civil War","Great story with much historical merit. Completely compelling. I could not put the book down!",2015-08-31
 US,4268236,R7F87FYTPXOQE,B009CUTC7G,716836572,Gone With the Wind,Books,5,0,0,N,Y,"Five Stars","Excellent!! It was just perfect!! What I was expecting, thank you very much. One satisfied customer.",2015-08-27
 US,153025,R2UR5YB7XZ3WJP,B00CEN3HME,716836572,Gone With the Wind,Books,5,0,1,N,Y,"Five Stars","feels ancient which is what i want",2015-08-19

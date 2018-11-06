@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,25730413,R2HKKLL5F8VU0U,0743297334,781452863,The Sun Also Rises,Books,5,0,0,N,Y,"Five Stars","Best book.",2015-08-29
 US,48514717,R1E7W7PJ0O07D0,0743297334,781452863,The Sun Also Rises,Books,3,0,0,N,Y,"Got this book for my daughter who had to read ...","Got this book for my daughter who had to read it for school. She was surprised about how much sexual content this book has. Said the story was not one she would have picked by herself to read.",2015-08-26
 US,52474647,R2P8A2ABDJR9NJ,0743297334,781452863,The Sun Also Rises,Books,2,0,0,N,N,"After the Moon Goes Down","I've read The Sun Also Rises on 3 separate occasions and never liked it.  If there was a point, I didn't get it. If there wasn't one, I still didn't get it.",2015-08-25

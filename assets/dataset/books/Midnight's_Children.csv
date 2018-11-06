@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,20815549,RKIEGKL0UQSZC,0140132708,903668876,Midnight's Children,Books,5,0,1,N,Y,"Five Stars","a good read",2015-01-03
 US,45360027,R2V3D9XH9RLNKR,0140132708,903668876,Midnight's Children,Books,3,0,1,N,Y,"Three Stars","ok",2014-07-08
 US,45744207,R3GU9P4Q5U3VL4,0140132708,903668876,Midnight's Children,Books,5,1,2,N,Y,"a must read","One of the best books I have ever read. Writer Salman Rushdie is at best in his mischievous, satirical and creating a storyline out of the historical fact.",2013-12-08

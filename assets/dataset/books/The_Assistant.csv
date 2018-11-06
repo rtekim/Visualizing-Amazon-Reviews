@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,19267806,R1I6QIBW2C6NRQ,1627618538,151911400,The Assistant,Books,4,0,0,N,Y,"Good Job!","This was a really good book. The characters were good and the story was solid. Good Job!",2015-06-12
 US,1338552,R1A33EA8ZBMKGP,1627618538,151911400,The Assistant,Books,5,2,3,N,Y,"Five Stars","Love this book.",2015-01-03
 US,9825046,R252N3C0D2QVT,1627618538,151911400,The Assistant,Books,5,1,2,N,N,"Five Stars","This book is absolutely amazing! I love it!",2014-12-28

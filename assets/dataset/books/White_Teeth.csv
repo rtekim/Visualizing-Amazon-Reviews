@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,11172584,R9EL6YGUW8VOJ,0375501851,363806782,White Teeth,Books,5,1,3,N,Y,"Collectible Book","Exactly as described. Reasonable price. In advertised condition and delivered on time and as agreed.",2015-01-19
 US,42287588,R1REI0BTHB0NDQ,0375501851,363806782,White Teeth,Books,4,0,0,N,N,"Four Stars","I was very engaged with the well-defined characters and good story line",2014-08-26
 US,42756182,R2DYSAVLN5AFZ,0375501851,363806782,White Teeth,Books,5,1,1,N,N,"if not maybe a bit better, and arrived well ahead of my expectation","The condition of the book was just as described, if not maybe a bit better, and arrived well ahead of my expectation. This first edition copy of Zadie Smith's 'White Teeth' will be treasured for many years to come.",2014-07-23

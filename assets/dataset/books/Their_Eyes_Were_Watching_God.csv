@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,3970364,RC43UF5CLV6MF,0061120065,624509678,Their Eyes Were Watching God,Books,5,0,0,N,Y,"Five Stars","Purchased for High school reading list.",2015-08-28
 US,19532081,RLOL728HFBGTY,0061120065,624509678,Their Eyes Were Watching God,Books,4,0,0,N,Y,"Really good book","I was assigned to read this book for my English class in college. It was a really interesting read and I highly recommend this book.",2015-08-25
 US,29998660,RI3NWPOGUFULY,0061120065,624509678,Their Eyes Were Watching God,Books,5,0,0,N,Y,"Five Stars","The product came in time, all was as advertised.  Thank you!",2015-08-23

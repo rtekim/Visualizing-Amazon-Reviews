@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,52449705,R9PXFELTCJ2VF,0786239212,977000479,Atonement,Books,1,0,10,N,Y,"One Star","I ordered the hard copy, instead received the soft cover copy, returned unopened.",2015-08-10
 US,18110865,RUTOAINIWJ3T6,B005I73J8A,977000479,Atonement,Books,4,0,0,N,Y,"Four Stars","Enjoyed this novel!",2015-08-09
 US,50916953,RN1PQXXCJGZ40,B004PGR8RI,977000479,Atonement,Books,3,0,3,N,Y,"Didn't read","I didn't read it. Gave as a gift",2015-07-01

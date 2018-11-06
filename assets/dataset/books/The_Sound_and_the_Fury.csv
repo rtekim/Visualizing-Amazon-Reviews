@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,35016913,R1WXMYFRRYJ4YQ,0394309944,161451712,The Sound and the Fury,Books,2,0,2,N,Y,"okay","Do not like book. Delivered as promised.",2015-05-13
 US,42885765,R7L9PBGF6JX1V,0394309944,161451712,The Sound and the Fury,Books,4,1,2,N,Y,"but once I got into it the story was pretty good. I'm not one who likes classics/older novels","I bought this for a literature class and had a hard time reading it, but once I got into it the story was pretty good. I'm not one who likes classics/older novels, but I did enjoy this one.",2015-05-06
 US,43653246,R2MUIY9DNWMYS3,0739325353,161451712,The Sound and the Fury,Books,5,0,0,N,Y,"Excellent book","One of my favorite books",2015-04-27

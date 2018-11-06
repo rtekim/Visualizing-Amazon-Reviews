@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,52333621,R26GAN2JEFCLID,081121804X,809318885,The Berlin Stories,Books,4,0,1,N,Y,"Four Stars","Story and writing quite dated. First story uninteresting and far fetched.",2015-02-28
 US,34884374,R25RCJQ9V1CH5A,081121804X,809318885,The Berlin Stories,Books,1,0,3,N,Y,"This book is very long and drawn out. there ...","This book is very long and drawn out.  there seems to be no cohesive story line.  It  is extremely and very difficult to believe that the movie &#34;Cabaret&#34; was taken from this book.",2015-02-20
 US,38974600,R154KGLD9OMX81,081121804X,809318885,The Berlin Stories,Books,5,0,1,N,Y,"Five Stars","Great book!",2014-12-27

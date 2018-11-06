@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,49109436,R374IRHG1UPXUH,B001GKRQ8M,303427184,Herzog,Books,2,3,8,N,Y,"Two Stars","Unreadable",2015-02-09
 US,34503935,R2LZ3BVESI6IZT,B000NYD39S,303427184,Herzog,Books,3,0,0,N,Y,"Herzog","the book smelled musty but was a hardcopy.  It is from 1963, so I guess that is to be expected.  the shipping price was fair.",2014-01-01
 US,45407544,R1G7T0Q5WG2QIY,0670369128,303427184,Herzog,Books,5,0,0,N,Y,"bellow!","Great condition, great book.. Saul Bellow is one of the very greatest, of course, and I was excited to get this.",2013-03-30

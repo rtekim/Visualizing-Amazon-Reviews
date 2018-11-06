@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,43361099,R1D6VC5OJ86S3O,0930289234,777411096,Watchmen,Books,5,0,1,N,Y,"Five Stars","One of the greatest graphic novels of all time.",2015-08-24
 US,43694865,RZ6GHLYS9F9Y6,1401245250,777411096,Watchmen,Books,3,0,1,N,N,"Decent read","I haven't read comics in a long time. Stumbled across this at the library and thought Id give it a try. I liked it. It was better than I thought it would be. The art is good and the writing is decent.",2015-08-22
 US,2165194,R3GEWR2K420Y7P,1401245250,777411096,Watchmen,Books,4,1,2,N,Y,"great!","The reason I am only giving this 4 stars is because I personally like the hardcover version better, it feels more exclusive somehow. But really, this was great too.",2015-08-18

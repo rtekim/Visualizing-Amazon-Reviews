@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,28529960,R2AX0W50CJ6QR7,0547572298,201087508,Ubik,Books,5,0,0,N,Y,"Five Stars","Great read.",2015-08-03
 US,14982235,RSI1CLS2XHRN0,0547572298,201087508,Ubik,Books,5,0,1,N,Y,"Five Stars","Genius",2015-07-20
 US,28456617,R9QIIXH2KHP1,0547572298,201087508,Ubik,Books,5,0,0,N,N,"Five Stars","I absolutely love this book! It's a mind warp till the very end! Classic PKD.",2015-07-07

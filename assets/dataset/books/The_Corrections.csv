@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,38190378,R3PHC8USOHUQNB,0374100128,647099960,The Corrections,Books,1,3,7,N,Y,"One Star","I hated this book and considered it a huge waste of my time.",2015-07-09
 US,52273955,R1395R6CNN9PI3,0374129983,647099960,The Corrections,Books,5,1,1,N,Y,"Great mental workout","A novel in every sense, thoroughly developed and complex in plot and character development.  Great mental workout, great feat.",2015-05-20
 US,15436118,RH323RY1KQYTW,B009CUNDZS,647099960,The Corrections,Books,5,0,0,N,N,"Five Stars","Beautiful hardcover gift edition",2014-11-28

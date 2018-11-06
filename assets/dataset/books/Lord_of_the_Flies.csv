@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,23275299,R1D6E0EXUJOIH0,0399501487,502818647,Lord of the Flies,Books,5,0,0,N,Y,"Five Stars","Great book for any age! Loved it",2015-08-31
 US,23264434,RMXDYHH70BNB,0399501487,502818647,Lord of the Flies,Books,5,0,0,N,Y,"Five Stars","good",2015-08-30
 US,1626770,R2F7SAQ7RL6PLC,0399501487,502818647,Lord of the Flies,Books,4,0,0,N,Y,"One of my favorite books from school so I needed a copy","One of my favorite books from school so I needed a copy. A little beat up when I got it but not bad.",2015-08-25

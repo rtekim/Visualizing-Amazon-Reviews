@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,26088141,R13QTEZIJW06P3,812911612X,380925201,Animal Farm,Books,4,0,0,N,Y,"Good read","Still in the middle of the book. So far it is I am really enjoying it.",2015-08-31
 US,28986540,R26CEYSDJBREQP,B000HJKAMM,380925201,Animal Farm,Books,5,0,0,N,Y,"Five Stars","Nearly 70 years since written, Animal Farm depicts the historical fact that Socialism does not work!",2015-08-30
 US,8136786,R2LI1HJJ20U5PJ,1502492792,380925201,Animal Farm,Books,5,0,0,N,Y,"Five Stars","Thanks!",2015-08-30

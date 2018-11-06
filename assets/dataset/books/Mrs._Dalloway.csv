@@ -1,3 +1,4 @@
+marketplace,customer_id,review_id,product_id,product_parent,product_title,product_category,star_rating,helpful_votes,total_votes,vine,verified_purchase,review_headline,review_body,review_date
 US,50152643,R29YFSZFQ6ROQE,0156628708,179043206,Mrs. Dalloway,Books,3,0,2,N,Y,"Boring story","Not an interesting story, predictable, slow pace.  They same thing was happening over and over.",2015-08-15
 US,37229315,R1C36XJZX7LXZD,1857151577,179043206,Mrs. Dalloway,Books,5,0,0,N,Y,"Great book","very pleased with the book purchased &#34;used&#34;",2015-08-14
 US,46268877,R30KJW4UISMD0F,0156628708,179043206,Mrs. Dalloway,Books,5,0,0,N,Y,"Masterpiece","One of Western Literature's masterpieces, Mrs. Dalloway reveals much about Post-War England.",2015-08-04
