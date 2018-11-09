@@ -49,3 +49,15 @@ body, a {
 .tab-content>.active {
     display: grid;
 }
+
+.inner {
+    position: absolute;
+}
+
+/*
+ * For scatterplot
+ */
+.axis line {
+    stroke: #000;
+    shape-rendering: crispEdges;
+}

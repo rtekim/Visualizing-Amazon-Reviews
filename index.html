@@ -1,92 +1,107 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Visualizing Amazon Reviews</title>
+	<head>
+	    <title>Visualizing Amazon Reviews</title>
 
-    <!-- Grab all of the CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" href="assets/stylesheets/stylesheet.css"/>
+	    <!-- Grab all of the CSS -->
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	    <link type="text/css" rel="stylesheet" href="assets/stylesheets/stylesheet.css"/>
 
-    <!-- Grab all of the javascript libs that we need -->
-    <script src="https://d3js.org/d3.v5.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-            crossorigin="anonymous"></script>
+	    <!-- Grab all of the javascript libs that we need -->
+	    <script src="https://d3js.org/d3.v5.js"></script>
+	    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	            crossorigin="anonymous"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+	            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+	            crossorigin="anonymous"></script>
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+	            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+	            crossorigin="anonymous"></script>
 
-    <!-- Here's our javascript files -->
+	    <!-- Here's our javascript files -->
+	    <script type="text/javascript" src="assets/js/scatterplot.js"></script>
+    	<script type="text/javascript" src="assets/js/grid.js"></script>
+		<script type="text/javascript" src="assets/js/table.js"></script>
+		<script type="text/javascript" src="assets/js/detailView.js"></script>
+	</head>
+	<body>
+	<div class="jumbotron">
+	    <div class="container">
+	        <h1 class="display-3">Visualizing Amazon Reviews</h1>
+	        <p>Humans have told stories to one another for thousands of years. With the advent of the written word (and
+	            later the eBook) storytelling transcended its oral roots and was written down. Stories in their modern form
+	            exist in written books known as "novels." A variety of novels have impacted people over the past couple
+	            centuries, and we wish to explore those novels and their representation in Amazon Book Reviews.</p>
+	    </div>
+	</div>
 
-</head>
-<body>
-<div class="jumbotron">
-    <div class="container">
-        <h1 class="display-3">Visualizing Amazon Reviews</h1>
-        <p>Humans have told stories to one another for thousands of years. With the advent of the written word (and
-            later the eBook) storytelling transcended its oral roots and was written down. Stories in their modern form
-            exist in written books known as "novels." A variety of novels have impacted people over the past couple
-            centuries, and we wish to explore those novels and their representation in Amazon Book Reviews.</p>
-    </div>
-</div>
+	<!-- Scatterplot -->
+	<div class="container">
+	    <div class="row">
+	    	<div class="col-lg-8" id="scatterplot-container">
+	    		
+	    	</div>
+	    	<div class="col-lg-4">
+	    		<div class="inner" id="scatterplot-selected">
+	    		</div>
+	    		<div class="inner" id="scatterplot-detail">
+	    		</div>
+	    	</div>
+	    </div>
+	</div>
 
-<!-- Scatterplot -->
-<div class="container">
-    <div class="row" id="scatterplot-container">
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+	    <li class="nav-item">
+	        <a class="nav-link active" id="table-tab" data-toggle="tab" href="#table" role="tab" aria-controls="table" aria-selected="true">Home</a>
+	    </li>
+	    <li class="nav-item">
+	        <a class="nav-link" id="bookGrid-tab" data-toggle="tab" href="#bookGrid" role="tab" aria-controls="bookGrid" aria-selected="false">Book Grid</a>
+	    </li>
+	</ul>
 
-    </div>
-</div>
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" id="table-tab" data-toggle="tab" href="#table" role="tab" aria-controls="table" aria-selected="true">Home</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="bookGrid-tab" data-toggle="tab" href="#bookGrid" role="tab" aria-controls="bookGrid" aria-selected="false">Book Grid</a>
-    </li>
-</ul>
+	<!-- Table and Grid -->
+	<div class="container">
+		<div class="row">
+			<div class="tab-content">
+			    <div class="tab-pane fade" id="bookGrid" role="tabpanel" aria-labelledby="bookGrid-tab"></div>
 
-<div class="tab-content">
-    <div class="tab-pane fade" id="bookGrid" role="tabpanel" aria-labelledby="bookGrid-tab"></div>
+			    <!-- Table -->
+			    <div class="tab-pane fade show active" id="table" role="tabpanel" aria-labelledby="table-tab">
+			        <div class="row">
+			            <table class="table table-striped" id="bookTable">
+			                <thead>
+			                <tr>
+			                    <th>Title</th>
+			                    <td>Total Reviews</td>
+			                    <td>Book</td>
+			                    <td>eBook</td>
+			                    <td>Verified</td>
+			                    <td>5 Stars</td>
+			                    <td>4 Stars</td>
+			                    <td>3 Stars</td>
+			                    <td>2 Stars</td>
+			                    <td>1 Stars</td>
+			                    <td>Average Helpful</td>
+			                </tr>
+			                </thead>
+			                <tbody>
 
-    <!-- Table -->
-    <div class="tab-pane fade show active" id="table" role="tabpanel" aria-labelledby="table-tab">
-        <div class="row">
-            <table class="table table-striped" id="bookTable">
-                <thead>
-                <tr>
-                    <th>Title</th>
-                    <td>Total Reviews</td>
-                    <td>Book</td>
-                    <td>eBook</td>
-                    <td>Verified</td>
-                    <td>5 Stars</td>
-                    <td>4 Stars</td>
-                    <td>3 Stars</td>
-                    <td>2 Stars</td>
-                    <td>1 Stars</td>
-                    <td>Average Helpful</td>
-                </tr>
-                </thead>
-                <tbody>
+			                </tbody>
+			            </table>
+			        </div>
+			    </div>
+			</div>
+		</div>
+	</div>
 
-                </tbody>
-            </table>
-        </div>
-    </div>
+		<!-- Detail View -->
+	    <div class="container">
 
-    <!-- Detail View -->
-    <div class="container">
+	    </div>
 
-    </div>
-</div>
-
-<!-- Make this be the last line in the body, as the various components will need to interact with the stuff in the DOM -->
-<script type="text/javascript" src="assets/js/grid.js"></script>
-<script type="text/javascript" src="assets/js/table.js"></script>
-<script type="text/javascript" src="assets/js/main.js"></script>
-</body>
+		<!-- Make this be the last line in the body, as the various components will need to interact with the stuff in the DOM -->
+		<script type="text/javascript" src="assets/js/main.js"></script>
+	</body>
 </html>

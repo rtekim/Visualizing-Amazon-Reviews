@@ -4,11 +4,15 @@
  * This is where we gather all of the components together and throw them up onto
  * the webpage. It'll be slick.
  */
-let grid;
-d3.csv("assets/dataset/books_overview.csv").then(data =>{
-    grid = new Grid(data);
-    grid.addBooks();
+let grid, table, scatterplot, detailView;
 
-    let table = new Table(data);
+d3.csv("assets/dataset/books_overview.csv").then(data =>{
+	detailView = new DetailView();
+    // grid = new Grid(data);
+    scatterplot = new Scatterplot(data, grid);
+    table = new Table(data);
+
+    scatterplot.update();
+    // grid.addBooks();
     table.createTable();
 });
