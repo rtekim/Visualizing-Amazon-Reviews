@@ -21,7 +21,9 @@
             crossorigin="anonymous"></script>
 
     <!-- Here's our javascript files -->
-
+    <script type="text/javascript" src="assets/js/grid.js"></script>
+	<script type="text/javascript" src="assets/js/table.js"></script>
+	<script type="text/javascript" src="assets/js/main.js"></script>
 </head>
 <body>
 <div class="jumbotron">
@@ -36,57 +38,64 @@
 
 <!-- Scatterplot -->
 <div class="container">
-    <div class="row" id="scatterplot-container">
+    <div class="row">
 
-    </div>
-</div>
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" id="table-tab" data-toggle="tab" href="#table" role="tab" aria-controls="table" aria-selected="true">Home</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="bookGrid-tab" data-toggle="tab" href="#bookGrid" role="tab" aria-controls="bookGrid" aria-selected="false">Book Grid</a>
-    </li>
-</ul>
+	<!-- Scatterplot -->
+	<div class="container">
+		<div class="row">
+			<!-- So here's the plan: we will have the left side be the scatterplot, and then the
+			right side will be the control panel and a little detail view about the selected book
+			on the scatterplot. That selected book will be the one that is opened up and shown
+			details below, after the table. Or at least, that's the plan. -->
+			<div class="col-md-8" id="scatterplot-container"></div>
+			<div class="col-md-4" id="scatterplot-controller">
+				
+			</div>
+		</div>
+	</div>
 
-<div class="tab-content">
-    <div class="tab-pane fade" id="bookGrid" role="tabpanel" aria-labelledby="bookGrid-tab"></div>
+	<div class="tab-content">
+	    <div class="tab-pane fade" id="bookGrid" role="tabpanel" aria-labelledby="bookGrid-tab"></div>
 
-    <!-- Table -->
-    <div class="tab-pane fade show active" id="table" role="tabpanel" aria-labelledby="table-tab">
-        <div class="row">
-            <table class="table table-striped" id="bookTable">
-                <thead>
-                <tr>
-                    <th>Title</th>
-                    <td>Total Reviews</td>
-                    <td>Book</td>
-                    <td>eBook</td>
-                    <td>Verified</td>
-                    <td>5 Stars</td>
-                    <td>4 Stars</td>
-                    <td>3 Stars</td>
-                    <td>2 Stars</td>
-                    <td>1 Stars</td>
-                    <td>Average Helpful</td>
-                </tr>
-                </thead>
-                <tbody>
+	    <!-- Table -->
+	    <div class="tab-pane fade show active" id="table" role="tabpanel" aria-labelledby="table-tab">
+	        <div class="row">
+	            <table class="table table-striped" id="bookTable">
+	                <thead>
+	                <tr>
+	                    <th>Title</th>
+	                    <td>Total Reviews</td>
+	                    <td>Book</td>
+	                    <td>eBook</td>
+	                    <td>Verified</td>
+	                    <td>5 Stars</td>
+	                    <td>4 Stars</td>
+	                    <td>3 Stars</td>
+	                    <td>2 Stars</td>
+	                    <td>1 Stars</td>
+	                    <td>Average Helpful</td>
+	                </tr>
+	                </thead>
+	                <tbody>
 
-                </tbody>
-            </table>
-        </div>
-    </div>
+	                </tbody>
+	            </table>
+	        </div>
+	    </div>
 
     <!-- Detail View -->
     <div class="container">
-
+    	<ul class="nav nav-tabs" id="myTab" role="tablist">
+		    <li class="nav-item">
+		        <a class="nav-link active" id="table-tab" data-toggle="tab" href="#table" role="tab" aria-controls="table" aria-selected="true">Home</a>
+		    </li>
+		    <li class="nav-item">
+		        <a class="nav-link" id="bookGrid-tab" data-toggle="tab" href="#bookGrid" role="tab" aria-controls="bookGrid" aria-selected="false">Book Grid</a>
+		    </li>
+		</ul>
     </div>
 </div>
-
-<!-- Make this be the last line in the body, as the various components will need to interact with the stuff in the DOM -->
-<script type="text/javascript" src="assets/js/grid.js"></script>
-<script type="text/javascript" src="assets/js/table.js"></script>
-<script type="text/javascript" src="assets/js/main.js"></script>
+	<!-- Make this be the last line in the body, as the various components will need to interact with the stuff in the DOM -->
+	<script type="text/javascript" src="assets/js/main.js"></script>
 </body>
 </html>
