@@ -17,4 +17,7 @@ Everything is in the `assets` directory--all stylesheets, dataset pieces, javasc
 
 ## TODO
 
-- [ ] Include bootstrap
+- [ ] Aggregate the data
+    - [ ] Add header to all of the various CSV files for each of the books
+    - [ ] Change the files to make them CSV rather "\t" separated
+    - [ ] Create one file for each book that has averages for each year that a review was given
