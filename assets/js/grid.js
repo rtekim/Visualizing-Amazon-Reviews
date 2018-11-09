@@ -9,10 +9,11 @@ class Grid {
     addBooks() {
         let book = this.grid.selectAll("div").data(this.books).enter().append("div");
         book.style("background-image", d => {
-            return `url("assets/images/${d.ImageURL}.jpeg")`;
+            console.log(d.title);
+            return `url("assets/images/${d.title}.jpeg")`;
         });
         book.attr("class", d => {
-            return this.chooseTileSize(d.TotalReviews)
+            return this.chooseTileSize(d["total_reviews"])
         });
         book.classed("book", true);
         book.on("click", function (d, i) {

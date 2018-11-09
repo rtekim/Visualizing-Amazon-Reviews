@@ -1,8 +1,9 @@
-class Table{
-    constructor(books){
+class Table {
+    constructor(books) {
         this.tableElements = books;
 
-        this.tableHeaders = ["TotalReviews"];
+        this.tableHeaders = ["total_reviews", "book_reviews", "ebook_reviews", "verified_reviews", "five_stars",
+            "four_stars", "three_stars", "two_stars", "one_star", "average_helpful"];
 
         this.cell = {
             "width": 70,
@@ -13,10 +14,22 @@ class Table{
         this.bar = {
             "height": 20
         };
+
+        this.createScales();
     }
 
-    createTable(){
-        console.log(this.tableElements);
+    createScales() {
+        this.reviewsScale = d3.scaleLinear()
+            .range([0, this.cell.width - this.cell.buffer]);
+
+        this.aggregateColorScale = d3.scaleLinear()
+            .range(['#feebe2', '#0000FF']);
+
+        this.reviewsScale.domain([0, d3.max(this.tableElements, d => d["total_reviews"])]);
+        this.aggregateColorScale.domain(this.reviewsScale.domain());
+    }
+
+    createTable() {
         let tr = d3.select("tbody").selectAll("tr")
             .data(this.tableElements);
 
@@ -27,12 +40,12 @@ class Table{
         trEnter.append("th");
 
         tr = trEnter.merge(tr);
-        tr.select("th").text(d => d.Title);
+        tr.select("th").text(d => d.title);
 
         let td = tr.selectAll("td")
             .data(d => {
                 return this.tableHeaders.map((k, i) => {
-                        return {'vis': 'bars', 'value': d[k]}
+                    return {'vis': 'bars', 'value': d[k]}
                 });
             });
 
@@ -50,40 +63,22 @@ class Table{
             .attr("width", d => d.vis === 'bars' ? this.cell.width : 2 * this.cell.width)
             .attr("height", this.cell.height);
 
-        let gameColumnsEnter = svgEnter.filter(d => {
+        let booksColumnsEnter = svgEnter.filter(d => {
             return d.vis === 'bars';
         });
 
-        let gameColumns = svg.filter(d => {
+        let booksColumns = svg.filter(d => {
             return d.vis === 'bars';
         });
 
-        gameColumnsEnter.append("rect");
-        gameColumns.select("rect")
+        booksColumnsEnter.append("rect");
+        booksColumns.select("rect")
             .attr("height", this.bar.height)
             .attr("width", d => {
-                return d.value;
-            });
+                return this.reviewsScale(d.value);
+            }).attr("fill", d => {
+            return this.aggregateColorScale(d.value);
+        });
 
-        gameColumnsEnter.append("text");
-
-        gameColumns.select("text")
-            .attr("x", d => d.value)
-            .attr("y", this.cell.height / 2)
-            .attr("dy", ".35em");
-
-        gameColumns.select("text")
-            .attr("dx", d => {
-                return d.value > 1 ? -3 : 0
-            })
-            .attr("text-anchor", d => {
-                return d.value > 0 ? 'end' : 'start'
-            });
-
-        gameColumns.select("text")
-            .classed('label', true)
-            .text(d => {
-                return d.value;
-            });
     }
 }

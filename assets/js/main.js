@@ -5,7 +5,7 @@
  * the webpage. It'll be slick.
  */
 let grid;
-d3.json("assets/dataset/books/allbooks.json").then(data =>{
+d3.csv("assets/dataset/books_overview.csv").then(data =>{
     grid = new Grid(data);
     grid.addBooks();
 

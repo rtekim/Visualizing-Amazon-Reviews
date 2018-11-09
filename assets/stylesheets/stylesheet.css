@@ -1,5 +1,4 @@
 body {
-    background-color: #323232;
     font-weight: 200;
     font-size: 18px;
 }
@@ -46,4 +45,7 @@ body, a {
 .open {
     grid-column-end: span 5;
     grid-row-end: span 4;
+}
+.tab-content>.active {
+    display: grid;
 }
