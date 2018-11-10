@@ -98,3 +98,24 @@ The following is the proposed project schedule, week by week:
 	* Tabular layout is complete
 	* Detail view is complete
 	* All that is left is polishing
+
+## Design Evolution
+
+Between our peer feedback session and the original implementation of our scatterplot, we have decided to only plot the books instead of the reviews. We determined it would be too cluttered and would not give us much additional data. We have decided to leave the detailed reviews to the detailed view. 
+We also decided to add another view that gives users another way to search for the books. We determined the table was too big for a user who might be looking for specific books. So we added a view that shows the book covers for each book and allows them to sort and size the covers based on customizable fields. When a user clicks on a cover, the detailed view is displayed. We got inspiration from this visualization https://medium.com/@andybarefoot/d3-and-css-grid-with-expanding-content-3c8aaf783cb1. Sketches of the new designed are below.
+We are also planning on interaction between the scatterplot, table and book grid. Once a book is selected on any view, the other two views will highlight the selected book also.
+
+![Overview](figs/sketch4.jpg)
+
+## Updated Schedule
+
+* 16 November
+	* Scatterplot is completed, with all inputs available in promised channels
+	* Tabular layout is sortable and columns are customizable
+	* Work on the detail view has begun
+	* All book covers are showing up on the grid and the sort and sizing customizable options are added
+* 23 November
+	* Tabular layout is complete
+	* Detail view is complete
+	* Interaction between views is completed
+	* All that is left is polishing
