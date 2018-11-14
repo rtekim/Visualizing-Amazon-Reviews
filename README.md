@@ -17,7 +17,7 @@ Everything is in the `assets` directory--all stylesheets, dataset pieces, javasc
 
 ## TODO
 
-- [ ] Aggregate the data
-    - [ ] Add header to all of the various CSV files for each of the books
-    - [ ] Change the files to make them CSV rather "\t" separated
-    - [ ] Create one file for each book that has averages for each year that a review was given
+- [ ] The Scatterplot
+	- [x] Miniature detail view shows information on mouse over
+	- [ ] Callbacks for the big detail view on selecting a book in the scatterplot
+	- [ ] Make the scatterplot bigger, putting the details and control panel on the bottom. Turns out our dataset is highly clustered.

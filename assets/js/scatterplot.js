@@ -59,6 +59,8 @@ class Scatterplot {
 
 	/** Updates the scatterplot with all of the various pieces of information*/
 	update() {
+		this.plotGroup.selectAll('circle').remove();
+
 		// Get the data together, along with the maxima and minima
 		let toShow = this.bookData.map((d) => {
 			return { title: d.title, x: d[this.selections.x], y: d[this.selections.y], size: d[this.selections.size]};
@@ -82,7 +84,23 @@ class Scatterplot {
 			.attr('cx', (d) => xScale(d.x))
 			.attr('cy', (d) => yScale(d.y))
 			.attr('r', (d) => sizeScale(d.size))
-			.classed('book-circle', true);
+			.classed('book-circle', true)
+			.on('mouseover', handleMouseOver)
+			.on('mouseout', handleMouseOut);
+
+		// TODO: Mouse over shows all information in the smaller detail view on the side
+		let that = this;
+
+		function handleMouseOver(d, i) {
+			that.showBook(that.bookData[i]);
+			d3.select(this).style('fill', '#FF0000');
+		}
+
+		// TODO: Mouse out hides all that information
+		function handleMouseOut(d, i) {
+			that.hideBook();
+			d3.select(this).style('fill', '#000000');
+		}
 
 		// TODO: Setup callbacks to open up the detail view, show details on mouse over or something
 	}
@@ -118,9 +136,26 @@ class Scatterplot {
         	.text((d) => { return d })
         	.attr('value', (d) => { return d });
 
-        selector.filter((d) => { if (d === selectedOption) { return d; } })
+        selector.filter((d) => { if (d === selectedOption) return d; })
         	.attr('selected', 'selected');
 
+        // TODO: Callback on selecting a new item
+
         return selector;
+	}
+
+	/** Helper method. Shows the book provided on the miniature detail view on the side. */
+	showBook(book) {
+		$('#scatterplot-mouse-over-title').text(book.title);
+		$('#scatterplot-mouse-over-total-reviews').text(book.total_reviews);
+		$('#scatterplot-mouse-over-book-reviews').text(book.book_reviews);
+		$('#scatterplot-mouse-over-ebook-reviews').text(book.ebook_reviews);
+		$('#scatterplot-mouse-over-verified-reviews').text(book.verified_reviews);
+		$('#scatterplot-mouse-over').show();
+	}
+
+	/** Helper method. Hides the book that is currently shown. */
+	hideBook() {
+		$('#scatterplot-mouse-over').hide();
 	}
 }

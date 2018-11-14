@@ -44,11 +44,22 @@
 	    		
 	    	</div>
 	    	<div class="col-sm-4">
-	    		<!-- Selected item of the scatterplot, showing details about things -->
-	    		<div class="inner" id="scatterplot-selected">
+	    		<!-- Moused-over item of the scatterplot, showing details about things -->
+	    		<div id="scatterplot-mouse-over-container">
+	    			<div id="scatterplot-mouse-over" style="display: none;">
+	    				<!-- title,total_reviews,book_reviews,ebook_reviews,verified_reviews,five_stars,four_stars,three_stars,two_stars,one_star,average_helpful -->
+	    				<!-- TODO: Make this look better -->
+	    				<p><span id='scatterplot-mouse-over-title'></span><br/>
+	    				Total Reviews: <span id='scatterplot-mouse-over-total-reviews'></span><br/>
+	    				Book Reviews: <span id='scatterplot-mouse-over-book-reviews'></span><br/>
+	    				eBook Reviews: <span id='scatterplot-mouse-over-ebook-reviews'></span><br/>
+	    				Verified Reviews: <span id='scatterplot-mouse-over-verified-reviews'></span><br/>
+	    				<!-- TODO: Average stars? Maybe show it as a stacked bar chart of some sort -->
+	    				<!-- Maybe nothing but stacked bar charts here... Hmmm... -->
+	    			</div>
 	    		</div>
 	    		<!-- The actual control panel that manages the other stuff -->
-	    		<div class="inner" id="scatterplot-control">
+	    		<div id="scatterplot-control">
 	    		</div>
 	    	</div>
 	    </div>

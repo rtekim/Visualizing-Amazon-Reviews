@@ -63,6 +63,15 @@ body, a {
 }
 
 .book-circle {
-    stroke: #666; /* Hail Satan! */
-    opacity: 0.2;
+    fill: #000000;
+    opacity: 0.4;
+}
+
+#scatterplot-mouse-over-container {
+    display: inline-block;
+    width: 750px;
+    height: 100px;
+    margin: auto;
+    position: relative;
+    padding-left: 30px;
 }

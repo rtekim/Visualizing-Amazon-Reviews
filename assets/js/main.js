@@ -21,6 +21,7 @@ d3.csv("assets/dataset/books_overview.csv").then(data => {
 		return newDataPoint; 
 	});
 	data.columns = columns;
+	// console.log(data);
 
 	detailView = new DetailView();
     // grid = new Grid(data);
