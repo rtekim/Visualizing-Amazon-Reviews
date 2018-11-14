@@ -48,7 +48,11 @@ class Scatterplot {
 			.attr('transform', 'translate(15, ' + this.height + ') scale(1, -1)')
 			.classed('axis', true);
 
-        // TODO: Control panel, small set of details on book selected
+        // TODO: Make nice labels for the control panel
+        this.controlPanel = {};
+        this.controlPanel.x = this.addSelector(this.selections.x);
+        this.controlPanel.y = this.addSelector(this.selections.y);
+        this.controlPanel.size = this.addSelector(this.selections.size);
 
         this.update();
 	}
@@ -71,10 +75,7 @@ class Scatterplot {
 			.domain([limits.size.min, limits.size.max])
 			.range([2, 20]);
 
-		console.log(toShow);
-		console.log(limits);
-
-		this.plotGroup.selectAll('circle')
+		let circles = this.plotGroup.selectAll('circle')
 			.data(toShow)
 			.enter()
 			.append('circle')
@@ -82,6 +83,8 @@ class Scatterplot {
 			.attr('cy', (d) => yScale(d.y))
 			.attr('r', (d) => sizeScale(d.size))
 			.classed('book-circle', true);
+
+		// TODO: Setup callbacks to open up the detail view, show details on mouse over or something
 	}
 
 	/** Helper method. Grabs the maxima and minima of the data to show to the user. */
@@ -102,5 +105,22 @@ class Scatterplot {
 		});
 
 		return limits;
+	}
+
+	/** Helper method. Adds a select element with the option provided as the currently selected option. */
+	addSelector(selectedOption) {
+		let selector = d3.select('#scatterplot-control').append('select')
+        	.attr('id', 'scatterplot-control-x')
+        	.selectAll('option')
+        	.data(this.availableSelections)
+        	.enter()
+        	.append('option')
+        	.text((d) => { return d })
+        	.attr('value', (d) => { return d });
+
+        selector.filter((d) => { if (d === selectedOption) { return d; } })
+        	.attr('selected', 'selected');
+
+        return selector;
 	}
 }
