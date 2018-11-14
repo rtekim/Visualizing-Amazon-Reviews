@@ -7,21 +7,18 @@ class Scatterplot {
 
 	/** Constructor. Takes the data from all_books and the grid layout to update the detail view.*/
 	constructor(data, grid) {
+		// We'll set up some stuff--get some data, the size of our scatterplot, and what selections we are using now
 		this.bookData = data;
 		this.grid = grid;
 
 		this.margin = { top: 20, right: 20, bottom: 20, left: 20 };
-        this.width = 810 - this.margin.left - this.margin.right;
-        this.height = 500 - this.margin.top - this.margin.bottom;
+        this.width = 810 - (this.margin.left + this.margin.right);
+        this.height = 500 - (this.margin.top + this.margin.bottom);
 
-		// So here's the skinny: we need x, y, and size attributes. We need to encode them like we did with the gap plot.
-		// We then need to allow the user to select which attributes to display and update them accordingly.
-
-		// Let's have x be "total reviews," y be verified reviews, and size be average helpfulness
 		this.availableSelections = data.columns;
 		this.availableSelections.shift();
 
-		this.selections = { x: 'total_reviews', y: 'verified_reviews', size: 'average_helpful' };
+		this.selections = { x: 'average_helpful', y: 'verified_reviews', size: 'total_reviews' };
 
 		// Now let's throw the plot up
 		this.svg = d3.select('#scatterplot-container').append('svg')
@@ -69,12 +66,13 @@ class Scatterplot {
 			.range([this.margin.left, this.margin.left + this.width]);
 		let yScale = d3.scaleLinear()
 			.domain([limits.y.min, limits.y.max])
-			.range([this.margin.bottom, this.margin.bottom + this.height]);
+			.range([this.margin.bottom, this.height - this.margin.top]);
 		let sizeScale = d3.scaleSqrt()
 			.domain([limits.size.min, limits.size.max])
-			.range([2, 10]);
+			.range([2, 20]);
 
-		console.log(sizeScale);
+		console.log(toShow);
+		console.log(limits);
 
 		this.plotGroup.selectAll('circle')
 			.data(toShow)
@@ -82,7 +80,8 @@ class Scatterplot {
 			.append('circle')
 			.attr('cx', (d) => xScale(d.x))
 			.attr('cy', (d) => yScale(d.y))
-			.attr('r', (d) => sizeScale(d.size));
+			.attr('r', (d) => sizeScale(d.size))
+			.classed('book-circle', true);
 	}
 
 	/** Helper method. Grabs the maxima and minima of the data to show to the user. */

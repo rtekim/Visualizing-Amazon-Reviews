@@ -61,3 +61,8 @@ body, a {
     stroke: #000;
     shape-rendering: crispEdges;
 }
+
+.book-circle {
+    stroke: #666; /* Hail Satan! */
+    opacity: 0.2;
+}
