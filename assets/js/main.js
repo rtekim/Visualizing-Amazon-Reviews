@@ -4,9 +4,27 @@
  * This is where we gather all of the components together and throw them up onto
  * the webpage. It'll be slick.
  */
-let grid, table, scatterplot, detailView;
 
-let globalState = { bookSelected: false }; // I'm not sure this is a good idea, but I'm doing it
+/** Class that oversees all the separate views and handles all of the interaction between separate pieces. */
+class Overseer {
+
+	constructor() {
+
+	}
+
+	/** Indicates that a book was selected. Opens up the detail view and */
+	bookSelected(book) {
+		this.detailView.update(book);
+	}
+
+	detailViewClosed() {
+
+	}
+}
+
+let overseer = new Overseer();
+
+let grid, table, scatterplot, detailView;
 
 d3.csv("assets/dataset/books_overview.csv").then(data => {
 	// We want numbers for all of the pieces of data, so let's go ahead and clean that up
@@ -24,12 +42,10 @@ d3.csv("assets/dataset/books_overview.csv").then(data => {
 	});
 	data.columns = columns;
 
-	detailView = new DetailView();
+	detailView = new DetailView(overseer);
     // grid = new Grid(data);
-    scatterplot = new Scatterplot(data, grid);
-    table = new Table(data);
-
-    scatterplot.update();
+    scatterplot = new Scatterplot(data, overseer);
+    table = new Table(data, overseer);
     // grid.addBooks();
     table.createTable();
 });

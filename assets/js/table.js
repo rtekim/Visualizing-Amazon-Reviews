@@ -1,5 +1,8 @@
 class Table {
-    constructor(books) {
+    constructor(books, overseer) {
+        overseer.table = this;
+        this.overseer = overseer;
+        
         this.tableElements = books;
 
         this.tableHeaders = ["total_reviews", "book_reviews", "ebook_reviews", "verified_reviews", "five_stars",

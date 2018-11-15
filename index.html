@@ -10,6 +10,7 @@
 
 	    <!-- Grab all of the javascript libs that we need -->
 	    <script src="https://d3js.org/d3.v5.js"></script>
+	    <script type="text/javascript" src="assets/js/cloud.js"></script>
 	    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 	            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 	            crossorigin="anonymous"></script>
@@ -71,6 +72,11 @@
 	    </div>
 	</div>
 
+	<!-- Detail View--for now. We will want this to be setup automatically when the user selects a book. -->
+    <div class="container">
+    	<div class='row' id='detail-view-container'></div>
+    </div>
+
 	<ul class="nav nav-tabs" id="myTab" role="tablist">
 	    <li class="nav-item">
 	        <a class="nav-link active" id="table-tab" data-toggle="tab" href="#table" role="tab" aria-controls="table" aria-selected="true">Table</a>
@@ -114,11 +120,6 @@
 			</div>
 		</div>
 	</div>
-
-		<!-- Detail View -->
-	    <div class="container">
-
-	    </div>
 
 		<!-- Make this be the last line in the body, as the various components will need to interact with the stuff in the DOM -->
 		<script type="text/javascript" src="assets/js/main.js"></script>

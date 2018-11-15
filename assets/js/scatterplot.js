@@ -6,10 +6,10 @@
 class Scatterplot {
 
 	/** Constructor. Takes the data from all_books and the grid layout to update the detail view.*/
-	constructor(data, grid) {
-		// We'll set up some stuff--get some data, the size of our scatterplot, and what selections we are using now
+	constructor(data, overseer) {
+		overseer.scatterplot = this; // Give the overseer a pointer to the scatterplot
 		this.bookData = data;
-		this.grid = grid;
+		this.overseer = overseer;
 
 		this.margin = { top: 20, right: 20, bottom: 20, left: 20 };
         this.width = 600 - (this.margin.left + this.margin.right);
@@ -20,7 +20,7 @@ class Scatterplot {
 
 		this.selections = { x: 'average_helpful', y: 'verified_reviews', size: 'total_reviews' };
 
-		// Now let's throw the plot up
+		// TODO: Make nice looking axes
 		this.svg = d3.select('#scatterplot-container').append('svg')
 			.attr('id', 'scatterplot')
 			.attr('width', this.width + this.margin.right + this.margin.left)
@@ -48,7 +48,6 @@ class Scatterplot {
 			.attr('transform', 'translate(15, ' + this.height + ') scale(1, -1)')
 			.classed('axis', true);
 
-        // TODO: Make nice labels for the control panel
         this.controlPanel = {};
         this.controlPanel.x = this.addSelector(d3.select('#scattterplot-dropdown-x'), 'x', this.selections.x);
         this.controlPanel.y = this.addSelector(d3.select('#scattterplot-dropdown-y'), 'y', this.selections.y);
@@ -87,7 +86,7 @@ class Scatterplot {
 			.classed('book-circle', true)
 			.on('mouseover', handleMouseOver)
 			.on('mouseout', handleMouseOut)
-			.on('click', handleMouseClick);
+			.on('click', (d, i) => { this.overseer.bookSelected(this.bookData[i]); });
 
 		let that = this;
 
@@ -100,12 +99,6 @@ class Scatterplot {
 			that.hideBook();
 			d3.select(this).style('fill', '#000000');
 		}
-
-		function handleMouseClick(d, i) {
-			console.log(that.bookData[i]);
-		}
-
-		// TODO: Setup callbacks to open up the detail view, show details on mouse over or something
 	}
 
 	/** Helper method. Grabs the maxima and minima of the data to show to the user. */

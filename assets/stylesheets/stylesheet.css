@@ -86,3 +86,12 @@ body, a {
 .scatterplot-dropdown {
     float: right;
 }
+
+/*
+ * For the detail view
+ */
+
+.detail-view-book-img {
+    width: 100%;
+    height: 100%;
+}
