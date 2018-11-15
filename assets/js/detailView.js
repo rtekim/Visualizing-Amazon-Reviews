@@ -8,7 +8,8 @@ class DetailView {
 		// TODO: This
 	}
 
-	update() {
-
+	/** Updates the detail view with information in the book provided */
+	update(book) {
+		// TODO: This
 	}
 }

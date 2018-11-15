@@ -12,8 +12,8 @@ class Scatterplot {
 		this.grid = grid;
 
 		this.margin = { top: 20, right: 20, bottom: 20, left: 20 };
-        this.width = 810 - (this.margin.left + this.margin.right);
-        this.height = 500 - (this.margin.top + this.margin.bottom);
+        this.width = 600 - (this.margin.left + this.margin.right);
+        this.height = 400 - (this.margin.top + this.margin.bottom);
 
 		this.availableSelections = data.columns;
 		this.availableSelections.shift();
@@ -50,9 +50,9 @@ class Scatterplot {
 
         // TODO: Make nice labels for the control panel
         this.controlPanel = {};
-        this.controlPanel.x = this.addSelector(this.selections.x);
-        this.controlPanel.y = this.addSelector(this.selections.y);
-        this.controlPanel.size = this.addSelector(this.selections.size);
+        this.controlPanel.x = this.addSelector(d3.select('#scattterplot-dropdown-x'), 'x', this.selections.x);
+        this.controlPanel.y = this.addSelector(d3.select('#scattterplot-dropdown-y'), 'y', this.selections.y);
+        this.controlPanel.size = this.addSelector(d3.select('#scattterplot-dropdown-size'), 'size', this.selections.size);
 
         this.update();
 	}
@@ -86,9 +86,9 @@ class Scatterplot {
 			.attr('r', (d) => sizeScale(d.size))
 			.classed('book-circle', true)
 			.on('mouseover', handleMouseOver)
-			.on('mouseout', handleMouseOut);
+			.on('mouseout', handleMouseOut)
+			.on('click', handleMouseClick);
 
-		// TODO: Mouse over shows all information in the smaller detail view on the side
 		let that = this;
 
 		function handleMouseOver(d, i) {
@@ -96,10 +96,13 @@ class Scatterplot {
 			d3.select(this).style('fill', '#FF0000');
 		}
 
-		// TODO: Mouse out hides all that information
 		function handleMouseOut(d, i) {
 			that.hideBook();
 			d3.select(this).style('fill', '#000000');
+		}
+
+		function handleMouseClick(d, i) {
+			console.log(that.bookData[i]);
 		}
 
 		// TODO: Setup callbacks to open up the detail view, show details on mouse over or something
@@ -126,20 +129,26 @@ class Scatterplot {
 	}
 
 	/** Helper method. Adds a select element with the option provided as the currently selected option. */
-	addSelector(selectedOption) {
-		let selector = d3.select('#scatterplot-control').append('select')
-        	.attr('id', 'scatterplot-control-x')
-        	.selectAll('option')
+	addSelector(container, plotAxis, selectedOption) {
+		let selector = container.append('select')
+        	.attr('id', 'scatterplot-control-' + plotAxis);
+
+        let options = selector.selectAll('option')
         	.data(this.availableSelections)
         	.enter()
         	.append('option')
-        	.text((d) => { return d })
+        	.text((d) => { return d.replace('_', ' ') })
         	.attr('value', (d) => { return d });
 
-        selector.filter((d) => { if (d === selectedOption) return d; })
+        options.filter((d) => { if (d === selectedOption) return d; })
         	.attr('selected', 'selected');
 
-        // TODO: Callback on selecting a new item
+        let that = this;
+
+        selector.on('change', function(d, i) {
+        	that.selections[plotAxis] = this.options[this.selectedIndex].value;
+        	that.update();
+        });
 
         return selector;
 	}

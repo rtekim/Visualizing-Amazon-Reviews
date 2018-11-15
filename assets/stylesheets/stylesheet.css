@@ -75,3 +75,14 @@ body, a {
     position: relative;
     padding-left: 30px;
 }
+
+.scatterplot-control-label {
+    width: 1%7;
+    display: inline-block;
+    float: left;
+    padding-right: 5px;
+}
+
+.scatterplot-dropdown {
+    float: right;
+}

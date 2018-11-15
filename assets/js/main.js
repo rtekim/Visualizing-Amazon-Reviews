@@ -6,6 +6,8 @@
  */
 let grid, table, scatterplot, detailView;
 
+let globalState = { bookSelected: false }; // I'm not sure this is a good idea, but I'm doing it
+
 d3.csv("assets/dataset/books_overview.csv").then(data => {
 	// We want numbers for all of the pieces of data, so let's go ahead and clean that up
 	let columns = data.columns;
@@ -21,7 +23,6 @@ d3.csv("assets/dataset/books_overview.csv").then(data => {
 		return newDataPoint; 
 	});
 	data.columns = columns;
-	// console.log(data);
 
 	detailView = new DetailView();
     // grid = new Grid(data);
