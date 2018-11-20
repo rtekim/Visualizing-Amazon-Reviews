@@ -67,24 +67,48 @@ body, a {
     opacity: 0.4;
 }
 
+#scatterplot-control-container {
+    width: 200px;
+    height: 400px;
+}
+
 #scatterplot-mouse-over-container {
     display: inline-block;
     width: 750px;
     height: 100px;
     margin: auto;
     position: relative;
-    padding-left: 30px;
+    padding-bottom: 30px;
+}
+
+#scatterplot-mouse-over {
+    position: absolute;
+}
+
+.scatterplot-mouse-over {
+    display: inline-block;
 }
 
 .scatterplot-control-label {
-    width: 1%7;
+    /*width: 1%7;*/
+    float: left;
+    padding-right: 5px;
+}
+
+.scatterplot-mouse-over-label {
+    /*width: 1%7;*/
     display: inline-block;
     float: left;
     padding-right: 5px;
 }
 
-.scatterplot-dropdown {
+.scatterplot-dropdown, .scatterplot-mouse-over-info {
     float: right;
+}
+
+#scatterplot-control {
+    position: absolute;
+    bottom: 50px;
 }
 
 /*
