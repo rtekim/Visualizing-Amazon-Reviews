@@ -20,7 +20,6 @@ class Scatterplot {
 
 		this.selections = { x: 'average_helpful', y: 'verified_reviews', size: 'total_reviews' };
 
-		// TODO: Make nice looking axes
 		this.svg = d3.select('#scatterplot-container').append('svg')
 			.attr('id', 'scatterplot')
 			.attr('width', this.width + this.margin.right + this.margin.left)
@@ -47,6 +46,26 @@ class Scatterplot {
         	.attr('id', 'scatterplot-plot-group')
 			.attr('transform', 'translate(15, ' + this.height + ') scale(1, -1)')
 			.classed('axis', true);
+
+		this.tickMarks = [0.0, 0.0, 0.25, 0.5, 0.75, 1.0];
+
+		let thingy = this.axisGroup.selectAll('line')
+			.data(this.tickMarks)
+			.enter();
+
+		thingy.append('line')
+			.attr('x1', (d) =>  { return (d * this.width) + this.margin.left })
+			.attr('y1', this.margin.bottom - 5)
+			.attr('x2', (d) =>  { return (d * this.width) + this.margin.left })
+			.attr('y2', this.margin.bottom + 5)
+			.classed('tick-marks', true);
+
+		thingy.append('line')
+			.attr('x1', this.margin.left - 5)
+			.attr('y1', (d) =>  { return (d * this.height) })
+			.attr('x2', this.margin.left + 5)
+			.attr('y2', (d) =>  { return (d * this.height) })
+			.classed('tick-marks', true);
 
         this.controlPanel = {};
         this.controlPanel.x = this.addSelector(d3.select('#scattterplot-dropdown-x'), 'x', this.selections.x);
@@ -89,6 +108,8 @@ class Scatterplot {
 			.on('click', (d, i) => { this.overseer.bookSelected(this.bookData[i]); });
 
 		let that = this;
+
+		// TODO: If the detail view is being shown, then keep the mouse over stuff visible
 
 		function handleMouseOver(d, i) {
 			that.showBook(that.bookData[i]);
