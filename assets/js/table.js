@@ -22,14 +22,45 @@ class Table {
     }
 
     createScales() {
-        this.reviewsScale = d3.scaleLinear()
-            .range([0, this.cell.width - this.cell.buffer]);
-
-        this.aggregateColorScale = d3.scaleLinear()
+        this.aggregateTotalColorScale = d3.scaleLinear()
             .range(['#feebe2', '#0000FF']);
 
-        this.reviewsScale.domain([0, d3.max(this.tableElements, d => d["total_reviews"])]);
-        this.aggregateColorScale.domain(this.reviewsScale.domain());
+        this.reviewsTotalScale = d3.scaleLinear()
+            .range([0, this.cell.width - this.cell.buffer]);
+
+        this.reviewsTotalScale.domain([0, d3.max(this.tableElements, d => d["total_reviews"])]);
+        this.aggregateTotalColorScale.domain(this.reviewsTotalScale.domain());
+
+        this.aggregatebookEbookColorScale = d3.scaleLinear()
+            .range(['#feebe2', '#0000FF']);
+
+        this.reviewsbookEbookScale = d3.scaleLinear()
+            .range([0, this.cell.width - this.cell.buffer]);
+
+        this.reviewsbookEbookScale.domain([0, d3.max(this.tableElements, d => {
+            return (d["book_reviews"] < d["ebook_reviews"]) ? d["ebook_reviews"] : d["book_reviews"];
+        })]);
+        this.aggregatebookEbookColorScale.domain(this.reviewsbookEbookScale.domain());
+
+        this.aggregateVerifiedColorScale = d3.scaleLinear()
+            .range(['#feebe2', '#0000FF']);
+
+        this.verifiedScale = d3.scaleLinear()
+            .range([0, this.cell.width - this.cell.buffer]);
+
+        this.verifiedScale.domain([0, d3.max(this.tableElements, d => d["verified_reviews"])]);
+        this.aggregateVerifiedColorScale.domain(this.verifiedScale.domain());
+
+        this.aggregateStarsColorScale = d3.scaleLinear()
+            .range(['#feebe2', '#0000FF']);
+
+        this.starsScale = d3.scaleLinear()
+            .range([0, this.cell.height - this.cell.buffer]);
+
+        this.starsScale.domain([0, d3.max(this.tableElements, d => {
+            return (d["five_stars"] < d["four_stars"]) ? d["four_stars"] : d["five_stars"];
+        })]);
+        this.aggregateStarsColorScale.domain(this.starsScale.domain());
     }
 
     createTable() {
@@ -48,7 +79,7 @@ class Table {
         let td = tr.selectAll("td")
             .data(d => {
                 return this.tableHeaders.map((k, i) => {
-                    return {'vis': 'bars', 'value': d[k]}
+                    return {'vis': 'bars', 'value': d[k], 'column': k}
                 });
             });
 
@@ -66,22 +97,73 @@ class Table {
             .attr("width", d => d.vis === 'bars' ? this.cell.width : 2 * this.cell.width)
             .attr("height", this.cell.height);
 
-        let booksColumnsEnter = svgEnter.filter(d => {
-            return d.vis === 'bars';
+        let totalReviewsColumnsEnter = svgEnter.filter(d => {
+            return d.column === "total_reviews";
         });
 
-        let booksColumns = svg.filter(d => {
-            return d.vis === 'bars';
+        let totalReviewsColumns = svg.filter(d => {
+            return d.column === "total_reviews";
         });
 
-        booksColumnsEnter.append("rect");
-        booksColumns.select("rect")
+        totalReviewsColumnsEnter.append("rect");
+        totalReviewsColumns.select("rect")
             .attr("height", this.bar.height)
             .attr("width", d => {
-                return this.reviewsScale(d.value);
+                return this.reviewsTotalScale(d.value);
             }).attr("fill", d => {
-            return this.aggregateColorScale(d.value);
+            return this.aggregateTotalColorScale(d.value);
         });
 
+
+        let bookEbookColumnsEnter = svgEnter.filter(d => {
+            return d.column === "book_reviews" || d.column === "ebook_reviews";
+        });
+
+        let bookEbookColumns = svg.filter(d => {
+            return d.column === "book_reviews" || d.column === "ebook_reviews";
+        });
+
+        bookEbookColumnsEnter.append("rect");
+        bookEbookColumns.select("rect")
+            .attr("height", this.bar.height)
+            .attr("width", d => {
+                return this.reviewsbookEbookScale(d.value);
+            }).attr("fill", d => {
+            return this.aggregatebookEbookColorScale(d.value);
+        });
+
+        let verifiedColumnsEnter = svgEnter.filter(d => {
+            return d.column === "verified_reviews";
+        });
+
+        let verifiedColumns = svg.filter(d => {
+            return d.column === "verified_reviews";
+        });
+
+        verifiedColumnsEnter.append("rect");
+        verifiedColumns.select("rect")
+            .attr("height", this.bar.height)
+            .attr("width", d => {
+                return this.verifiedScale(d.value);
+            }).attr("fill", d => {
+            return this.aggregateVerifiedColorScale(d.value);
+        });
+
+        let starsColumnsEnter = svgEnter.filter(d => {
+            return d.column === "five_stars"||d.column === "four_stars"||d.column === "three_stars"||d.column === "two_stars"||d.column === "one_stars";
+        });
+
+        let starsColumns = svg.filter(d => {
+            return d.column === "five_stars"||d.column === "four_stars"||d.column === "three_stars"||d.column === "two_stars"||d.column === "one_stars";
+        });
+
+        verifiedColumnsEnter.append("rect");
+        verifiedColumns.select("rect")
+            .attr("height", d=>{
+                return this.starsScale(d.value);
+            })
+            .attr("width",10).attr("fill", d => {
+            return this.aggregateStarsColorScale(d.value);
+        });
     }
 }
