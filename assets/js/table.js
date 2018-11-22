@@ -157,8 +157,8 @@ class Table {
             return d.column === "five_stars"||d.column === "four_stars"||d.column === "three_stars"||d.column === "two_stars"||d.column === "one_stars";
         });
 
-        verifiedColumnsEnter.append("rect");
-        verifiedColumns.select("rect")
+        starsColumnsEnter.append("rect");
+        starsColumns.select("rect")
             .attr("height", d=>{
                 return this.starsScale(d.value);
             })
