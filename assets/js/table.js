@@ -10,7 +10,7 @@ class Table {
 
         this.cell = {
             "width": 70,
-            "height": 20,
+            "height": 70,
             "buffer": 15
         };
 
@@ -58,7 +58,9 @@ class Table {
             .range([0, this.cell.height - this.cell.buffer]);
 
         this.starsScale.domain([0, d3.max(this.tableElements, d => {
-            return (d["five_stars"] < d["four_stars"]) ? d["four_stars"] : d["five_stars"];
+            let number = Math.max(d["five_stars"],d["four_stars"],d["three_stars"],d["two_stars"],d["one_star"]);
+            console.log(number);
+            return number;
         })]);
         this.aggregateStarsColorScale.domain(this.starsScale.domain());
     }
@@ -150,11 +152,11 @@ class Table {
         });
 
         let starsColumnsEnter = svgEnter.filter(d => {
-            return d.column === "five_stars"||d.column === "four_stars"||d.column === "three_stars"||d.column === "two_stars"||d.column === "one_stars";
+            return d.column === "five_stars"||d.column === "four_stars"||d.column === "three_stars"||d.column === "two_stars"||d.column === "one_star";
         });
 
         let starsColumns = svg.filter(d => {
-            return d.column === "five_stars"||d.column === "four_stars"||d.column === "three_stars"||d.column === "two_stars"||d.column === "one_stars";
+            return d.column === "five_stars"||d.column === "four_stars"||d.column === "three_stars"||d.column === "two_stars"||d.column === "one_star";
         });
 
         starsColumnsEnter.append("rect");
