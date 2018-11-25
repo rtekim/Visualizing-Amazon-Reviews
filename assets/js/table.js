@@ -57,6 +57,43 @@ class Table {
 
         this.starsScale.domain([0, 1]);
         this.aggregateStarsColorScale.domain(this.starsScale.domain());
+
+        let sortedTableHeaders = this.tableHeaders.map(() => false);
+
+        // Sorting
+        d3.selectAll("thead td").data(this.tableHeaders).on("click", (k, i) => {
+            let invert;
+            if (sortedTableHeaders[i] === true) {
+                sortedTableHeaders[i] = false;
+                invert = true;
+            } else {
+                sortedTableHeaders = this.tableHeaders.map(() =>{
+                    return false
+                });
+                sortedTableHeaders[i] = true;
+                invert = false;
+            }
+
+            this.tableElements = this.tableElements.sort((a, b) =>{
+                if (invert) {
+                    let temp = b;
+                    b = a;
+                    a = temp;
+                }
+                    if (b[k] === a[k]) {
+                        return a.key < b.key ? -1 : 1
+                    } else
+                        return b[k] - a[k];
+            });
+            this.createTable();
+        });
+
+        d3.selectAll("thead th").data('title').on("click", () => {
+            this.tableElements = this.tableElements.sort((a, b) =>{
+                return a.key < b.key ? -1 : 1
+            });
+            this.createTable();
+        });
     }
 
     createTable() {
