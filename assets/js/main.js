@@ -12,9 +12,12 @@ class Overseer {
 
 	}
 
-	/** Indicates that a book was selected. Opens up the detail view and */
+	/** Indicates that a book was selected. */
 	bookSelected(book) {
-		this.detailView.update(book);
+		// TODO: Check and see if the table is up. If so, then append the detail view to that row of the table.
+		// TODO: Otherwise, hand it the book that was selected in the grid
+		this.detailView.update(book, d3.select('#detail-view-container'));
+		$(window).scrollTop($('#detail-view-holder').position().top);
 	}
 
 	detailViewClosed() {

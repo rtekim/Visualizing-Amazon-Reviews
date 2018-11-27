@@ -2,6 +2,10 @@
  * detailView.js
  *
  * Class handling the detail view, showing information about the books.
+ *
+ * TODO: Visualizations of the various pieces of data we have
+ * TODO: Word cloud. Put the data in a separate file and then the detail view will grab and use that instead.
+ * TODO: Close button
  */
 class DetailView {
 	constructor(overseer) {
@@ -11,55 +15,59 @@ class DetailView {
 		this.dimensions = {};
 		this.dimensions.cloud = { width: 500, height: 500 };
 
-		this.cloud = d3.layout.cloud()
-			.size([this.dimensions.cloud.width, this.dimensions.cloud.height ])
-			.rotate(function() { return ~~(Math.random() * 2) * 90; })
-			.font("Impact")
-			.fontSize(function(d) { return d.size; })
-			.on('end', () => { this.drawWordCloud(); });
+		// this.cloud = d3.layout.cloud()
+		// 	.size([this.dimensions.cloud.width, this.dimensions.cloud.height ])
+		// 	.rotate(function() { return ~~(Math.random() * 2) * 90; })
+		// 	.font("Impact")
+		// 	.fontSize(function(d) { return d.size; })
+		// 	.on('end', () => { this.drawWordCloud(); });
 
 		this.book = null;
 	}
 
-	/** Updates the detail view with information in the book provided */
-	update(book) {
+	/** Updates the detail view with information in the book provided with the parent provided. */
+	update(book, parent) {
+		if (this.bookShown()) {
+			this.close();
+		}
+
+		this.parent = parent;
+		this.detailViewHolder = this.parent.append('div')
+			.attr('id', 'detail-view-holder');
+
 		d3.csv('assets/dataset/books/' + book.title.replace(/ /g, '_') + '.csv').then((data) => {
 			this.bookData = data;
 			this.cloudWords = this.extractWords(data);
 
-			if (this.bookShown()) {
-				this.bookImage
-					.attr('src', 'assets/images/' + book.title + '.jpeg')
-					.attr('alt', book.title);
-			} else {
-				let detailViewContainer = d3.select('#detail-view-container');
+			this.bookImage = this.detailViewHolder.append('div')
+				.classed('col-md-4', true)
+				.append('img')
+				.attr('src', 'assets/images/' + book.title + '.jpeg')
+				.attr('alt', book.title)
+				.classed('detail-view-book-img', true);
 
-				this.bookImage = detailViewContainer.append('div')
-					.classed('col-md-4', true)
-					.append('img')
-					.attr('src', 'assets/images/' + book.title + '.jpeg')
-					.attr('alt', book.title)
-					.classed('detail-view-book-img', true);
+			// TODO: Add wordcloud
+			this.wordCloudHolder = this.detailViewHolder.append('div')
+				.classed('col-md-4', true);
 
-				// TODO: Add wordcloud
-				this.wordCloudContainer = detailViewContainer.append('div')
-					.classed('col-md-4', true);
+			// this.cloud.words(this.cloudWords).start();
 
-				this.cloud.words(this.cloudWords).start();
+			let visHolder = this.detailViewHolder.append('div')
+				.classed('col-md-4', true);
 
-				// TODO: Add smaller visualizations of other pieces
-				detailViewContainer.append('div')
-					.classed('col-md-4', true);
-			}
+			// TODO: Stars stacked bar chart
+			let starsHolder = visHolder.append('div');
 
-			// console.log(this.bookData.columns);
+			// TODO: Reviews stacked bar chart
+			let reviewsHolder = visHolder.append('div');
+
 			this.book = book;
 		});
 	}
 
 	/** Closes the detail view, removing it from the page. */
 	close() {
-		d3.select('#detail-view-container').html('');
+		this.detailViewHolder.remove();
 		this.book = null;
 	}
 
@@ -86,7 +94,7 @@ class DetailView {
 	}
 
 	drawWordCloud() {
-		this.wordCloudContainer.append('svg')
+		this.wordCloudHolder.append('svg')
 			.attr('width', this.dimensions.cloud.width)
 			.attr('height', this.dimensions.cloud.height)
 			.append("g")
