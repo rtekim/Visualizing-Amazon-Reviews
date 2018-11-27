@@ -14,7 +14,7 @@ class DetailView {
 
 		this.dimensions = {};
 		this.dimensions.cloud = { width: 500, height: 500 };
-		this.dimensions.stars = { width: 200, height: 25 };
+		this.dimensions.bars = { width: 300, height: 25 };
 
 		// this.cloud = d3.layout.cloud()
 		// 	.size([this.dimensions.cloud.width, this.dimensions.cloud.height ])
@@ -34,15 +34,19 @@ class DetailView {
 
 		this.parent = parent;
 		this.detailViewHolder = this.parent.append('div')
+			.classed('row', true)
 			.attr('id', 'detail-view-holder');
 		this.book = book;
 
 		d3.csv('assets/dataset/books/' + book.title.replace(/ /g, '_') + '.csv').then((data) => {
 			this.bookData = data;
 			this.cloudWords = this.extractWords(data);
+			let imgDiv = this.detailViewHolder.append('div')
+				.classed('col-md-4', true);
 
-			this.bookImage = this.detailViewHolder.append('div')
-				.classed('col-md-4', true)
+			imgDiv.append('h2').html(this.book.title);
+
+			this.bookImage = imgDiv
 				.append('img')
 				.attr('src', 'assets/images/' + book.title + '.jpeg')
 				.attr('alt', book.title)
@@ -55,16 +59,18 @@ class DetailView {
 			// this.cloud.words(this.cloudWords).start();
 
 			let visHolder = this.detailViewHolder.append('div')
-				.classed('col-md-4', true);
+				.classed('col-md-4', true)
+				.classed('detail-view-vis-holder', true);
 
 			// Stacked bar chart of stars
 			let starsHolder = visHolder.append('div');
 			starsHolder.append('h3').text('Stars');
 
 			let starsSvg = starsHolder.append('svg')
-				.attr('width', this.dimensions.stars.width)
-				.attr('height', this.dimensions.stars.height);
+				.attr('width', this.dimensions.bars.width)
+				.attr('height', this.dimensions.bars.height);
 
+			// TODO: Fix this, or switch over to a histogram style
 			let stars = this.getStars();
 			let totalStars = d3.sum(stars);
 			starsSvg.selectAll('rect')
@@ -76,14 +82,14 @@ class DetailView {
 						return 0;
 					} else {
 						let prev = stars[i - 1];
-						return (prev / totalStars) * this.dimensions.stars.width;
+						return (prev / totalStars) * this.dimensions.bars.width;
 					}
 				})
 				.attr('y', 0)
 				.attr('width', (d, i) => {
-					return (d / totalStars) * this.dimensions.stars.width;
+					return (d / totalStars) * this.dimensions.bars.width;
 				})
-				.attr('height', this.dimensions.stars.height)
+				.attr('height', this.dimensions.bars.height)
 				.style('fill', (d, i) => {
 					let r = 150 + (i * 18);
 					let g = 140 + (i * 18);
@@ -93,8 +99,52 @@ class DetailView {
 				.append('svg:title')
 				.text((d, i) => { return (i + 1) + ' stars'; });
 
-			// TODO: Reviews stacked bar chart
 			let reviewsHolder = visHolder.append('div');
+			reviewsHolder.append('h3').text('Book Types');
+
+			let reviews = [ this.book.book_reviews, this.book.ebook_reviews ];
+			let totalReviews = this.book.total_reviews;
+
+			let reviewsSvg = reviewsHolder.append('svg')
+				.attr('width', this.dimensions.bars.width)
+				.attr('height', this.dimensions.bars.height);
+
+			reviewsSvg.selectAll('rect')
+				.data(reviews)
+				.enter()
+				.append('rect')
+				.attr('x', (d, i) => {
+					if (i === 0) {
+						return 0;
+					} else {
+						let prev = reviews[i - 1];
+						return (prev / totalReviews) * this.dimensions.bars.width;
+					}
+				})
+				.attr('y', 0)
+				.attr('width', (d, i) => {
+					return (d / totalReviews) * this.dimensions.bars.width;
+				})
+				.attr('height', this.dimensions.bars.height)
+				.style('fill', (d, i) => {
+					if (i === 0) {
+						return 'blue';
+					} else {
+						return 'red';
+					}
+				})
+				.append('svg:title')
+				.text((d, i) => {
+					if (i === 0) {
+						return 'dead trees';
+					} else {
+						return 'eBooks'; 
+					}
+				});
+
+			// TODO: Histogram of the reviews themselves. We can bin by year, and then
+			// TODO: display different things (like stars or something) by that year
+
 		});
 	}
 

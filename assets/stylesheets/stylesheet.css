@@ -116,8 +116,20 @@ body, a {
  */
 
 .detail-view-book-img {
-    width: 100%;
-    height: 100%;
+    width: 75%;
+    height: 75%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.detail-view-vis-holder {
+    display: inline-block;
+}
+
+.detail-view-vis-holder > div {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 #detail-view-holder {
