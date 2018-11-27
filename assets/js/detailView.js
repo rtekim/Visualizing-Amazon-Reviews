@@ -14,6 +14,7 @@ class DetailView {
 
 		this.dimensions = {};
 		this.dimensions.cloud = { width: 500, height: 500 };
+		this.dimensions.stars = { width: 200, height: 25 };
 
 		// this.cloud = d3.layout.cloud()
 		// 	.size([this.dimensions.cloud.width, this.dimensions.cloud.height ])
@@ -34,6 +35,7 @@ class DetailView {
 		this.parent = parent;
 		this.detailViewHolder = this.parent.append('div')
 			.attr('id', 'detail-view-holder');
+		this.book = book;
 
 		d3.csv('assets/dataset/books/' + book.title.replace(/ /g, '_') + '.csv').then((data) => {
 			this.bookData = data;
@@ -55,13 +57,44 @@ class DetailView {
 			let visHolder = this.detailViewHolder.append('div')
 				.classed('col-md-4', true);
 
-			// TODO: Stars stacked bar chart
+			// Stacked bar chart of stars
 			let starsHolder = visHolder.append('div');
+			starsHolder.append('h3').text('Stars');
+
+			let starsSvg = starsHolder.append('svg')
+				.attr('width', this.dimensions.stars.width)
+				.attr('height', this.dimensions.stars.height);
+
+			let stars = this.getStars();
+			let totalStars = d3.sum(stars);
+			starsSvg.selectAll('rect')
+				.data(stars)
+				.enter()
+				.append('rect')
+				.attr('x', (d, i) => {
+					if (i === 0) {
+						return 0;
+					} else {
+						let prev = stars[i - 1];
+						return (prev / totalStars) * this.dimensions.stars.width;
+					}
+				})
+				.attr('y', 0)
+				.attr('width', (d, i) => {
+					return (d / totalStars) * this.dimensions.stars.width;
+				})
+				.attr('height', this.dimensions.stars.height)
+				.style('fill', (d, i) => {
+					let r = 150 + (i * 18);
+					let g = 140 + (i * 18);
+
+					return 'rgb(' + r + ', ' + g + ', 0)';
+				})
+				.append('svg:title')
+				.text((d, i) => { return (i + 1) + ' stars'; });
 
 			// TODO: Reviews stacked bar chart
 			let reviewsHolder = visHolder.append('div');
-
-			this.book = book;
 		});
 	}
 
@@ -91,6 +124,11 @@ class DetailView {
 
 			return headlines.concat.apply([], body);
 		}).flat();
+	}
+
+	/** Helper method. Returns the stars data from the currently selected book. */
+	getStars() {
+		return [ this.book.one_star, this.book.two_stars, this.book.three_stars, this.book.four_stars, this.book.five_stars ];
 	}
 
 	drawWordCloud() {
