@@ -48,7 +48,7 @@
 	    	<div class="col-sm-4" id='scatterplot-control-container'>
 	    		<!-- Moused-over item of the scatterplot, showing details about things -->
 	    		<div id="scatterplot-mouse-over-container">
-	    			<div id="scatterplot-mouse-over" style="/*display: none;*/">
+	    			<div id="scatterplot-mouse-over" style="display: none;">
 	    				<h2 id='scatterplot-mouse-over-title'>Title</h2>
 	    				<div class='scatterplot-mouse-over'>
 	    					<div class='scatterplot-mouse-over-label'><strong><text>Total Reviews:</text></strong></div>
@@ -84,8 +84,24 @@
 	</div>
 
 	<!-- Detail View--for now. We will want this to be setup automatically when the user selects a book. -->
-    <div class="container">
-    	<div class='row' id='detail-view-container'></div>
+    <div class="container" id='detail-view-container'>
+    	<!-- <div class="row" id="detail-view-holder">
+    		<div class="col-md-4">
+				<img src="assets/images/The Catcher in the Rye.jpeg" alt="The Catcher in the Rye" class="detail-view-book-img">
+			</div>
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<h3>Stars</h3>
+				<svg width="200" height="25">
+					<rect x="0" y="0" width="22.241784037558684" height="25" style="fill: rgb(150, 140, 0);"><title>1 stars</title></rect>
+					<rect x="22.241784037558684" y="0" width="15.727699530516432" height="25" style="fill: rgb(168, 158, 0);"><title>2 stars</title></rect>
+					<rect x="15.727699530516432" y="0" width="20.070422535211268" height="25" style="fill: rgb(186, 176, 0);"><title>3 stars</title></rect>
+					<rect x="20.070422535211268" y="0" width="32.335680751173705" height="25" style="fill: rgb(204, 194, 0);"><title>4 stars</title></rect>
+					<rect x="32.335680751173705" y="0" width="109.6244131455399" height="25" style="fill: rgb(222, 212, 0);"><title>5 stars</title></rect>
+				</svg>
+			</div>
+		</div> -->
+    	<!-- <div class='row' id='detail-view-container'></div> -->
     </div>
 
 	<ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -98,40 +114,38 @@
 	</ul>
 
 	<!-- Table and Grid -->
-	<div class="container">
-		<div class="row">
+
 			<div class="tab-content">
 			    <div class="tab-pane fade" id="bookGrid" role="tabpanel" aria-labelledby="bookGrid-tab"></div>
 
 			    <!-- Table -->
+				<div class="container">
 			    <div class="tab-pane fade show active" id="table" role="tabpanel" aria-labelledby="table-tab">
 			        <div class="row">
 			            <table class="table table-striped" id="bookTable">
-			                <thead>
-			                <tr>
-			                    <th>Title</th>
-			                    <td>Total Reviews</td>
-			                    <td>Book</td>
-			                    <td>eBook</td>
-			                    <td>Verified</td>
-			                    <td>5 Stars</td>
-			                    <td>4 Stars</td>
-			                    <td>3 Stars</td>
-			                    <td>2 Stars</td>
-			                    <td>1 Stars</td>
-			                    <td>Average Helpful</td>
-			                </tr>
-			                </thead>
+							<thead>
+							<tr>
+								<th>Title</th>
+								<td>Total Reviews</td>
+								<td>Book</td>
+								<td>eBook</td>
+								<td>Verified</td>
+								<td>5 Stars</td>
+								<td>4 Stars</td>
+								<td>3 Stars</td>
+								<td>2 Stars</td>
+								<td>1 Stars</td>
+								<td>Average Helpful</td>
+							</tr>
+							</thead>
 			                <tbody>
 
 			                </tbody>
 			            </table>
 			        </div>
-			    </div>
+				</div>
 			</div>
-		</div>
 	</div>
-
 		<!-- Make this be the last line in the body, as the various components will need to interact with the stuff in the DOM -->
 		<script type="text/javascript" src="assets/js/main.js"></script>
 	</body>
