@@ -34,3 +34,9 @@ Everything is in the `assets` directory--all stylesheets, dataset pieces, javasc
 	- [ ] Consider pre-processing a lot of this work
 	- [ ] Add a close button and hook it up to the overseer
 	- [ ] 
+
+## Bugs
+
+- [ ] Deliverance.jpeg doesn't exist?
+- [ ] Also, Lolita.jpeg?
+- [ ] And Neuromancer

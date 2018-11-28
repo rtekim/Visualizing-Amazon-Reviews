@@ -23,6 +23,7 @@ class DetailView {
 		// 	.fontSize(function(d) { return d.size; })
 		// 	.on('end', () => { this.drawWordCloud(); });
 
+		this.histogram = new Histogram();
 		this.book = null;
 	}
 
@@ -70,7 +71,7 @@ class DetailView {
 				.attr('width', this.dimensions.bars.width)
 				.attr('height', this.dimensions.bars.height);
 
-			// TODO: Fix this, or switch over to a histogram style
+			// TODO: Add numbers over each of the rects
 			let stars = this.getStars();
 			let totalStars = d3.sum(stars);
 			starsSvg.selectAll('rect')
@@ -81,8 +82,10 @@ class DetailView {
 					if (i === 0) {
 						return 0;
 					} else {
-						let prev = stars[i - 1];
-						return (prev / totalStars) * this.dimensions.bars.width;
+						let previous = stars.slice(0, i);
+						let xPos = 0;
+						previous.forEach((d) => { xPos += (d / totalStars) * this.dimensions.bars.width});
+						return xPos;
 					}
 				})
 				.attr('y', 0)
@@ -99,51 +102,9 @@ class DetailView {
 				.append('svg:title')
 				.text((d, i) => { return (i + 1) + ' stars'; });
 
-			let reviewsHolder = visHolder.append('div');
-			reviewsHolder.append('h3').text('Book Types');
-
-			let reviews = [ this.book.book_reviews, this.book.ebook_reviews ];
-			let totalReviews = this.book.total_reviews;
-
-			let reviewsSvg = reviewsHolder.append('svg')
-				.attr('width', this.dimensions.bars.width)
-				.attr('height', this.dimensions.bars.height);
-
-			reviewsSvg.selectAll('rect')
-				.data(reviews)
-				.enter()
-				.append('rect')
-				.attr('x', (d, i) => {
-					if (i === 0) {
-						return 0;
-					} else {
-						let prev = reviews[i - 1];
-						return (prev / totalReviews) * this.dimensions.bars.width;
-					}
-				})
-				.attr('y', 0)
-				.attr('width', (d, i) => {
-					return (d / totalReviews) * this.dimensions.bars.width;
-				})
-				.attr('height', this.dimensions.bars.height)
-				.style('fill', (d, i) => {
-					if (i === 0) {
-						return 'blue';
-					} else {
-						return 'red';
-					}
-				})
-				.append('svg:title')
-				.text((d, i) => {
-					if (i === 0) {
-						return 'dead trees';
-					} else {
-						return 'eBooks'; 
-					}
-				});
-
 			// TODO: Histogram of the reviews themselves. We can bin by year, and then
 			// TODO: display different things (like stars or something) by that year
+			this.histogram.update(this.bookData, visHolder);
 
 		});
 	}
