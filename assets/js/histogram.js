@@ -43,6 +43,20 @@ class Histogram {
 			.attr('x2', this.dimensions.width)
 			.attr('y2', this.dimensions.padding)
 			.style('stroke', 'black');
+
+		this.allYears.forEach((year) => {
+			let info = this.getBarsDrawInfo(year, []);
+
+			this.svg
+				.append('text')
+				.attr('x', info.xPos)
+				.attr('dx', 18)
+				.attr('y', this.dimensions.height - (this.dimensions.padding / 2))
+				.classed('histogram-year-label', true)
+				.text(year.slice(2, 5))
+				.append('svg:title')
+				.text('Year');
+		});
 	}
 
 	/** Draws the currently selected category for each year. */
@@ -179,8 +193,8 @@ class Histogram {
 
 		info.yearGroup = this.rectGroup.select('#year-group-' + year);
 		info.maxHeight = (dataset.length / this.totalReviews) * this.dimensions.height;
-		info.xPos = (this.dimensions.width / this.allYears.length) * this.allYears.indexOf(year);
-		info.width = (this.dimensions.width / this.allYears.length) - this.dimensions.bars.xPad;
+		info.xPos = ((this.dimensions.width - this.dimensions.padding) / this.allYears.length) * this.allYears.indexOf(year);
+		info.width = ((this.dimensions.width) / this.allYears.length) - this.dimensions.bars.xPad;
 
 		return info;
 	}

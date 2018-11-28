@@ -137,6 +137,6 @@ body, a {
     height: 550px;
 }
 
-/*
- * For the detail view
- */
+.histogram-year-label {
+    font: bold 12px sans-serif;
+}
