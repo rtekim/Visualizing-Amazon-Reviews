@@ -105,6 +105,8 @@ class DetailView {
 	/** Helper method. Shows the category provided in the histogram and in the rest of the right column*/
 	showCategory(category) {
 		this.selectedCategory = category;
+
+		this.barSvg.selectAll('rect').remove();
 		let header = d3.select('#histogram-category-header');
 
 		if (category === 'starRating') {
@@ -161,7 +163,6 @@ class DetailView {
 
 	/** Helper method. Draws the verified bar.*/
 	drawVerifiedBar() {
-		this.barSvg.selectAll('rect').remove();
 		this.barSvg.append('rect')
 			.attr('x', 0)
 			.attr('y', 0)
@@ -188,7 +189,24 @@ class DetailView {
 
 	/** Helper method. Draws the eBook bar. */
 	drawEBookBar() {
+		console.log(this.book);
+		this.barSvg.append('rect')
+			.attr('x', 0)
+			.attr('y', 0)
+			.attr('width', this.dimensions.bars.width)
+			.attr('height', this.dimensions.bars.height)
+			.style('fill', '#CA6C00')
+			.append('svg:title')
+			.text('eBook');
 
+		this.barSvg.append('rect')
+			.attr('x', 0)
+			.attr('y', 0)
+			.attr('width', (this.book.ebook_reviews / this.book.total_reviews) * this.dimensions.bars.width)
+			.attr('height', this.dimensions.bars.height)
+			.style('fill', '#E67A00')
+			.append('svg:title')
+			.text('Dead Tree');
 	}
 
 	/** Helper method. Returns true if a book is shown. */

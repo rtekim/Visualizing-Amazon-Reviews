@@ -155,6 +155,26 @@ class Histogram {
 		let maxHeight = (dataset.length / this.totalReviews) * this.dimensions.height;
 		let xPos = (this.dimensions.width / this.allYears.length) * this.allYears.indexOf(year);
 		let width = (this.dimensions.width / this.allYears.length) - 2;
+
+		yearGroup.append('rect')
+			.attr('x', xPos)
+			.attr('y', this.dimensions.padding)
+			.attr('width', width)
+			.attr('height', maxHeight)
+			.style('fill', '#CA6C00')
+			.append('svg:title')
+			.text('eBook');
+
+		let eBook = dataset.filter((d) => d.isEBook);
+
+		yearGroup.append('rect')
+			.attr('x', xPos)
+			.attr('y', this.dimensions.padding)
+			.attr('width', width)
+			.attr('height', (eBook.length / dataset.length) * maxHeight)
+			.style('fill', '#E67A00')
+			.append('svg:title')
+			.text('Dead Tree');
 	}
 
 	/** Helper method. Extract all of the data from the review set. */
