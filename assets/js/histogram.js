@@ -73,6 +73,14 @@ class Histogram {
 			}
 		});
 
+		for (let i = 0; i < 5; i++) {
+			if (!stars[i]) {
+				stars[i] = 0;
+			}
+		}
+
+		console.log(year + '\t' + stars)
+
 		yearGroup.selectAll('rect')
 			.data(stars)
 			.enter()
@@ -82,17 +90,13 @@ class Histogram {
 				if (i === 0) {
 					return this.dimensions.padding;
 				} else {
-					let value = stars[i - 1] || 0;
+					let value = d3.sum(stars.slice(0, i));
+
 					return (value / dataset.length) * maxHeight + this.dimensions.padding;
 				}
 			})
 			.attr('width', width)
 			.attr('height', (d, i) => {
-				if (d) {
-					return (d / dataset.length) * maxHeight + this.dimensions.padding;
-				} else {
-					return 0;
-				}
 				return (d / dataset.length) * maxHeight;
 			})
 			.style('fill', (d, i) => {
