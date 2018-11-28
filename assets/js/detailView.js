@@ -13,15 +13,15 @@ class DetailView {
 		this.overseer = overseer;
 
 		this.dimensions = {};
-		this.dimensions.cloud = { width: 500, height: 500 };
+		this.dimensions.cloud = { width: 350, height: 350 };
 		this.dimensions.bars = { width: 450, height: 25 };
 
-		// this.cloud = d3.layout.cloud()
-		// 	.size([this.dimensions.cloud.width, this.dimensions.cloud.height ])
-		// 	.rotate(function() { return ~~(Math.random() * 2) * 90; })
-		// 	.font("Impact")
-		// 	.fontSize(function(d) { return d.size; })
-		// 	.on('end', () => { this.drawWordCloud(); });
+		this.cloud = d3.layout.cloud()
+			.size([this.dimensions.cloud.width, this.dimensions.cloud.height ])
+			.rotate(function() { return ~~(Math.random() * 2) * 90; })
+			.font("Impact")
+			.fontSize(function(d) { return d.size; })
+			.on('end', () => { this.drawWordCloud(); });
 
 		this.histogram = new Histogram();
 		this.book = null;
@@ -40,59 +40,71 @@ class DetailView {
 		this.book = book;
 
 		d3.csv('assets/dataset/books/' + book.title.replace(/ /g, '_') + '.csv').then((data) => {
-			this.bookData = data;
-			this.cloudWords = this.extractWords(data);
-			let imgDiv = this.detailViewHolder.append('div')
-				.classed('col-md-4', true);
+			d3.csv('assets/dataset/cloud/' + book.title.replace(/ /g, '_') + '_cloud.csv').then ((cloudWords) => {
+				this.bookData = data;
+				this.cloudWords = this.extractWords(cloudWords[0].words.split(' '));
 
-			imgDiv.append('h2').html(this.book.title);
+				let imgDiv = this.detailViewHolder.append('div')
+					.classed('col-md-4', true);
 
-			this.bookImage = imgDiv
-				.append('img')
-				.attr('src', 'assets/images/' + book.title + '.jpeg')
-				.attr('alt', book.title)
-				.classed('detail-view-book-img', true);
+				imgDiv.append('h2').html(this.book.title);
 
-			// TODO: Add wordcloud
-			this.wordCloudHolder = this.detailViewHolder.append('div')
-				.classed('col-md-4', true);
+				this.bookImage = imgDiv
+					.append('img')
+					.attr('src', 'assets/images/' + book.title + '.jpeg')
+					.attr('alt', book.title)
+					.classed('detail-view-book-img', true);
 
-			// this.cloud.words(this.cloudWords).start();
+				this.wordCloudHolder = this.detailViewHolder.append('div')
+					.classed('col-md-4', true);
 
-			let visHolder = this.detailViewHolder.append('div')
-				.classed('col-md-4', true)
-				.classed('detail-view-vis-holder', true);
+				this.wordCloudHolder.append('h3')
+					.text('Most Used Words');
 
-			// Stacked bar chart of what we need to show to the user
-			this.histogramHolder = visHolder.append('div');
-			this.histogramHolder.append('h3')
-				.attr('id', 'histogram-category-header');
+				let cloud = d3.layout.cloud()
+					.size([this.dimensions.cloud.width, this.dimensions.cloud.height])
+					.rotate(function() { return ~~(Math.random() * 2) * 90; })
+					.font('Impact')
+					.fontSize(function(d) { return d.size; })
+					.on('end', () => {this.drawWordCloud(); });
 
-			this.barSvg = this.histogramHolder.append('svg')
-				.attr('width', this.dimensions.bars.width)
-				.attr('height', this.dimensions.bars.height);
+				cloud.words(this.cloudWords).start();
 
-			this.histogram.update(this.bookData, visHolder);
-			this.showCategory('starRating');
+				let visHolder = this.detailViewHolder.append('div')
+					.classed('col-md-4', true)
+					.classed('detail-view-vis-holder', true);
 
-			let options = visHolder.append('select')
-				.attr('id', 'histogram-category-selector')
-				.selectAll('option')
-				.data(this.histogram.categories)
-				.enter()
-				.append('option')
-				.attr('value', (d) => d)
-				.text((d) => d);
+				// Stacked bar chart of what we need to show to the user
+				this.histogramHolder = visHolder.append('div');
+				this.histogramHolder.append('h3')
+					.attr('id', 'histogram-category-header');
 
-			options.filter((d) => { if (d === this.selectedCategory) return d; })
-				.attr('selected', 'selected');
+				this.barSvg = this.histogramHolder.append('svg')
+					.attr('width', this.dimensions.bars.width)
+					.attr('height', this.dimensions.bars.height);
 
-			let that = this;
-			d3.select('#histogram-category-selector')
-				.on('change', function(d, i) {
-					let selection = this.options[this.selectedIndex].value;
-					that.showCategory(selection);
-				});
+				this.histogram.update(this.bookData, visHolder);
+				this.showCategory('starRating');
+
+				let options = visHolder.append('select')
+					.attr('id', 'histogram-category-selector')
+					.selectAll('option')
+					.data(this.histogram.categories)
+					.enter()
+					.append('option')
+					.attr('value', (d) => d)
+					.text((d) => d);
+
+				options.filter((d) => { if (d === this.selectedCategory) return d; })
+					.attr('selected', 'selected');
+
+				let that = this;
+				d3.select('#histogram-category-selector')
+					.on('change', function(d, i) {
+						let selection = this.options[this.selectedIndex].value;
+						that.showCategory(selection);
+					});
+			})
 		});
 	}
 
@@ -219,16 +231,24 @@ class DetailView {
 	}
 
 	/** Helper method. Extracts all the words from all of the reviews. */
-	extractWords(data) {
-		let replaceRegex = /\.\,\-\!\?><\\\#\$\&"/g;
-		let splitRegex = /[\s,.-]/g;
+	extractWords(words) {
+		let newWords = words.map((d) => {
+			let freq = words.filter((w) => w === d).length;
+			return { text: d, size: freq + Math.random() * 90};
+		});
 
-		return data.map((r) => {
-			let headlines = r.review_headline.replace(replaceRegex, ' ').toLowerCase().split(splitRegex).filter((w) => w);
-			let body = r.review_body.replace(replaceRegex, ' ').toLowerCase().split(splitRegex).filter((w) => w);
+		let set = [];
+		let foundWords = [];
+		newWords.forEach((d) => {
+			if (!foundWords.includes(d.text)) {
+				set.push(d)
+				foundWords.push(d.text);
+			}
+		})
 
-			return headlines.concat.apply([], body);
-		}).flat();
+		console.log(set);
+
+		return set;
 	}
 
 	/** Helper method. Returns the stars data from the currently selected book. */
@@ -249,7 +269,7 @@ class DetailView {
 			.style("font-family", "Impact")
 			.attr("text-anchor", "middle")
 			.attr("transform", function(d) {
-				return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+				return "translate(" + [d.x, d.y] + ") rotate(" + d.rotate + ")";
 			})
 			.text(function(d) { return d.text; });
 	}
