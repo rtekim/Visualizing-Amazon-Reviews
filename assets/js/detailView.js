@@ -14,7 +14,7 @@ class DetailView {
 
 		this.dimensions = {};
 		this.dimensions.cloud = { width: 500, height: 500 };
-		this.dimensions.bars = { width: 300, height: 25 };
+		this.dimensions.bars = { width: 450, height: 25 };
 
 		// this.cloud = d3.layout.cloud()
 		// 	.size([this.dimensions.cloud.width, this.dimensions.cloud.height ])
@@ -63,48 +63,17 @@ class DetailView {
 				.classed('col-md-4', true)
 				.classed('detail-view-vis-holder', true);
 
-			// Stacked bar chart of stars
-			let starsHolder = visHolder.append('div');
-			starsHolder.append('h3').text('Stars');
+			// Stacked bar chart of what we need to show to the user
+			this.histogramHolder = visHolder.append('div');
+			this.histogramHolder.append('h3')
+				.attr('id', 'histogram-category-header');
 
-			let starsSvg = starsHolder.append('svg')
+			this.barSvg = this.histogramHolder.append('svg')
 				.attr('width', this.dimensions.bars.width)
 				.attr('height', this.dimensions.bars.height);
 
-			// TODO: Add numbers over each of the rects
-			let stars = this.getStars();
-			let totalStars = d3.sum(stars);
-			starsSvg.selectAll('rect')
-				.data(stars)
-				.enter()
-				.append('rect')
-				.attr('x', (d, i) => {
-					if (i === 0) {
-						return 0;
-					} else {
-						let previous = stars.slice(0, i);
-						let xPos = 0;
-						previous.forEach((d) => { xPos += (d / totalStars) * this.dimensions.bars.width});
-						return xPos;
-					}
-				})
-				.attr('y', 0)
-				.attr('width', (d, i) => {
-					return (d / totalStars) * this.dimensions.bars.width;
-				})
-				.attr('height', this.dimensions.bars.height)
-				.style('fill', (d, i) => {
-					let r = 150 + (i * 18);
-					let g = 140 + (i * 18);
-
-					return 'rgb(' + r + ', ' + g + ', 0)';
-				})
-				.append('svg:title')
-				.text((d, i) => { return (i + 1) + ' stars'; });
-
-			this.selectedCategory = 'starRating';
 			this.histogram.update(this.bookData, visHolder);
-			this.histogram.drawCategory(this.selectedCategory);
+			this.showCategory('starRating');
 
 			let options = visHolder.append('select')
 				.attr('id', 'histogram-category-selector')
@@ -117,6 +86,13 @@ class DetailView {
 
 			options.filter((d) => { if (d === this.selectedCategory) return d; })
 				.attr('selected', 'selected');
+
+			let that = this;
+			d3.select('#histogram-category-selector')
+				.on('change', function(d, i) {
+					let selection = this.options[this.selectedIndex].value;
+					that.showCategory(selection);
+				});
 		});
 	}
 
@@ -124,6 +100,75 @@ class DetailView {
 	close() {
 		this.detailViewHolder.remove();
 		this.book = null;
+	}
+
+	/** Helper method. Shows the category provided in the histogram and in the rest of the right column*/
+	showCategory(category) {
+		this.selectedCategory = category;
+		let header = d3.select('#histogram-category-header');
+
+		if (category === 'starRating') {
+			header.text('Star Rating');
+			this.drawStarsBar();
+		} else if (category === 'verified') {
+			header.text('Verified Reviews');
+		} else if (category === 'year') {
+			header.text('Reviews per year');
+		} else if (category === 'isEBook') {
+			header.text('Dead Tree vs. eBook')
+		}
+
+		this.histogram.drawCategory(this.selectedCategory);
+	}
+
+	/** Helper method. Draws the stars bar. */
+	drawStarsBar() {
+		let stars = this.getStars();
+		let totalStars = d3.sum(stars);
+		this.barSvg.selectAll('rect').remove();
+
+		this.barSvg.selectAll('rect')
+			.data(stars)
+			.enter()
+			.append('rect')
+			.attr('x', (d, i) => {
+				if (i === 0) {
+					return 0;
+				} else {
+					let previous = stars.slice(0, i);
+					let xPos = 0;
+					previous.forEach((d) => { xPos += (d / totalStars) * this.dimensions.bars.width});
+					return xPos;
+				}
+			})
+			.attr('y', 0)
+			.attr('width', (d, i) => {
+				return (d / totalStars) * this.dimensions.bars.width;
+			})
+			.attr('height', this.dimensions.bars.height)
+			.style('fill', (d, i) => {
+				let r = 150 + (i * 18);
+				let g = 140 + (i * 18);
+
+				return 'rgb(' + r + ', ' + g + ', 0)';
+			})
+			.append('svg:title')
+			.text((d, i) => { return (i + 1) + ' stars'; });
+	}
+
+	/** Helper method. Draws the verified bar.*/
+	drawVerifiedBar() {
+
+	}
+
+	/** Helper method. Draws the reviews per year bar.*/
+	drawReviewsBar() {
+
+	}
+
+	/** Helper method. Draws the eBook bar. */
+	drawEBookBar() {
+
 	}
 
 	/** Helper method. Returns true if a book is shown. */

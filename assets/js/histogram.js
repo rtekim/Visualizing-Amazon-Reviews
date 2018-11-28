@@ -10,12 +10,12 @@ class Histogram {
 		this.dimensions = { width: 450, height: 300, padding: 20 };
 		this.allYears = ['1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003', '2004', 
 			'2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015'];
+		this.categories = [ 'starRating', 'verified', 'year', 'isEBook' ]
 	}
 
 	/** Update the instagram with the new set of reviews and parent element to append to */
 	update(reviewSet, parentElement) {
 		this.data = this.extractData(reviewSet);
-		this.categories = this.extractCategories();
 		this.parent = parentElement;
 		this.totalReviews = reviewSet.length;
 
@@ -49,6 +49,12 @@ class Histogram {
 			if (this.data[year]) {
 				if (category === 'starRating') {
 					this.drawStarsBar(year, this.data[year]);
+				} else if (category === 'verified') {
+					this.drawVerifiedBar(year, this.data[year]);
+				} else if (category === 'year') {
+					this.drawYearBar(year, this.data[year]);
+				} else if (category === 'isEBook') {
+					this.drawEBooksBar(year, this.data[year]);
 				}
 			}
 		});
@@ -104,9 +110,28 @@ class Histogram {
 			.text((d, i) => { return (i + 1) + ' stars' });
 	}
 
+	/** Helper method. Draws the stacked bar graph for verified reviews. */
+	drawVerifiedBar(year, dataset) {
+		let yearGroup = this.rectGroup.select('#year-group-' + year);
+		let maxHeight = (dataset.length / this.totalReviews) * this.dimensions.height;
+		let xPos = (this.dimensions.width / this.allYears.length) * this.allYears.indexOf(year);
+		let width = (this.dimensions.width / this.allYears.length) - 2;
+	}
+
+	/** Helper method. Draws a simple bar for the year provided. */
+	drawYearBar(year, dataset) {
+		let yearGroup = this.rectGroup.select('#year-group-' + year);
+		let maxHeight = (dataset.length / this.totalReviews) * this.dimensions.height;
+		let xPos = (this.dimensions.width / this.allYears.length) * this.allYears.indexOf(year);
+		let width = (this.dimensions.width / this.allYears.length) - 2;
+	}
+
 	/** Helper method. Draws the stacked bar graph for ebook/regular book reviews. */
 	drawEBooksBar(year, dataset) {
-		// TODO: This
+		let yearGroup = this.rectGroup.select('#year-group-' + year);
+		let maxHeight = (dataset.length / this.totalReviews) * this.dimensions.height;
+		let xPos = (this.dimensions.width / this.allYears.length) * this.allYears.indexOf(year);
+		let width = (this.dimensions.width / this.allYears.length) - 2;
 	}
 
 	/** Helper method. Extract all of the data from the review set. */
@@ -135,17 +160,5 @@ class Histogram {
 		});
 
 		return actualSet;
-	}
-
-	/** Helper method. Gets all the possible categories from the review set provided. */
-	extractCategories() {
-		let categories = null;
-		this.allYears.forEach((year) => {
-			if (this.data[year] && this.data[year][0]) {
-				categories = Object.keys(this.data[year][0]);
-			}
-		});
-
-		return categories;
 	}
 }
