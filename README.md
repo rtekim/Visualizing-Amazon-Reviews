@@ -37,6 +37,25 @@ Everything is in the `assets` directory--all stylesheets, dataset pieces, javasc
 
 ## Bugs
 
-- [ ] Deliverance.jpeg doesn't exist?
-- [ ] Also, Lolita.jpeg?
-- [ ] And Neuromancer
+- [ ] Missing some books:
+	```
+	[2018-11-27 19:16:48] ERROR `/assets/images/Watchmen.jpeg' not found.
+	[2018-11-27 19:16:53] ERROR `/assets/images/Ubik.jpeg' not found.
+	[2018-11-27 19:17:04] ERROR `/assets/images/Neuromancer.jpeg' not found.
+	[2018-11-27 19:17:27] ERROR `/assets/images/Watchmen.jpeg' not found.
+	[2018-11-27 19:17:27] ERROR `/assets/images/Lolita.jpeg' not found.
+	[2018-11-27 19:17:27] ERROR `/assets/images/Falconer.jpeg' not found.
+	[2018-11-27 19:17:27] ERROR `/assets/images/Are You There God' not found.
+	[2018-11-27 19:17:27] ERROR `/assets/images/Atonement.jpeg' not found.
+	[2018-11-27 19:17:27] ERROR `/assets/images/Neuromancer.jpeg' not found.
+	[2018-11-27 19:17:27] ERROR `/assets/images/Beloved.jpeg' not found.
+	[2018-11-27 19:17:27] ERROR `/assets/images/Ragtime.jpeg' not found.
+	[2018-11-27 19:17:27] ERROR `/assets/images/Money.jpeg' not found.
+	[2018-11-27 19:17:27] ERROR `/assets/images/Housekeeping.jpeg' not found.
+	[2018-11-27 19:17:27] ERROR `/assets/images/Loving.jpeg' not found.
+	[2018-11-27 19:17:27] ERROR `/assets/images/Herzog.jpeg' not found.
+	[2018-11-27 19:17:27] ERROR `/assets/images/Ubik.jpeg' not found.
+	[2018-11-27 19:17:27] ERROR `/assets/images/Deliverance.jpeg' not found.
+	[2018-11-27 19:17:27] ERROR `/assets/images/Possession.jpeg' not found.
+	```
+- [ ] Selecting the book grid and then going back to the table only appends the table--it does not remove the book grid

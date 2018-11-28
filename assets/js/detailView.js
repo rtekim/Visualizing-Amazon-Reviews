@@ -102,10 +102,21 @@ class DetailView {
 				.append('svg:title')
 				.text((d, i) => { return (i + 1) + ' stars'; });
 
-			// TODO: Histogram of the reviews themselves. We can bin by year, and then
-			// TODO: display different things (like stars or something) by that year
+			this.selectedCategory = 'starRating';
 			this.histogram.update(this.bookData, visHolder);
+			this.histogram.drawCategory(this.selectedCategory);
 
+			let options = visHolder.append('select')
+				.attr('id', 'histogram-category-selector')
+				.selectAll('option')
+				.data(this.histogram.categories)
+				.enter()
+				.append('option')
+				.attr('value', (d) => d)
+				.text((d) => d);
+
+			options.filter((d) => { if (d === this.selectedCategory) return d; })
+				.attr('selected', 'selected');
 		});
 	}
 

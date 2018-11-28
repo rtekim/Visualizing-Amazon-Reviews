@@ -7,7 +7,7 @@ class Histogram {
 
 	constructor() {
 		this.selectedCategory = 'starRating';
-		this.dimensions = { width: 450, height: 450, padding: 20 };
+		this.dimensions = { width: 450, height: 300, padding: 20 };
 		this.allYears = ['1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003', '2004', 
 			'2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015'];
 	}
@@ -41,18 +41,15 @@ class Histogram {
 			.attr('x2', this.dimensions.width)
 			.attr('y2', this.dimensions.padding)
 			.style('stroke', 'black');
-
-		this.drawCategory();
-		// Add the selector and setup listeners for it
-
 	}
 
-	/** Helper method. Draws the currently selected category for each year. */
-	drawCategory() {
+	/** Draws the currently selected category for each year. */
+	drawCategory(category) {
 		this.allYears.forEach((year) => {
 			if (this.data[year]) {
-				// TODO: Support other categories
-				this.drawStarsBar(year, this.data[year]);
+				if (category === 'starRating') {
+					this.drawStarsBar(year, this.data[year]);
+				}
 			}
 		});
 	}
@@ -78,8 +75,6 @@ class Histogram {
 				stars[i] = 0;
 			}
 		}
-
-		console.log(year + '\t' + stars)
 
 		yearGroup.selectAll('rect')
 			.data(stars)
