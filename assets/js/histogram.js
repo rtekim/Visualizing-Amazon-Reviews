@@ -147,6 +147,13 @@ class Histogram {
 		let maxHeight = (dataset.length / this.totalReviews) * this.dimensions.height;
 		let xPos = (this.dimensions.width / this.allYears.length) * this.allYears.indexOf(year);
 		let width = (this.dimensions.width / this.allYears.length) - 2;
+
+		yearGroup.append('rect')
+			.attr('x', xPos)
+			.attr('y', this.dimensions.padding)
+			.attr('width', width)
+			.attr('height', maxHeight)
+			.style('fill', '#00B99F');
 	}
 
 	/** Helper method. Draws the stacked bar graph for ebook/regular book reviews. */
