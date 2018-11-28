@@ -46,6 +46,8 @@ class Histogram {
 	/** Draws the currently selected category for each year. */
 	drawCategory(category) {
 		this.allYears.forEach((year) => {
+			this.rectGroup.select('#year-group-' + year).selectAll('rect').remove();
+
 			if (this.data[year]) {
 				if (category === 'starRating') {
 					this.drawStarsBar(year, this.data[year]);
@@ -116,6 +118,27 @@ class Histogram {
 		let maxHeight = (dataset.length / this.totalReviews) * this.dimensions.height;
 		let xPos = (this.dimensions.width / this.allYears.length) * this.allYears.indexOf(year);
 		let width = (this.dimensions.width / this.allYears.length) - 2;
+
+		yearGroup.append('rect')
+			.attr('x', xPos)
+			.attr('y', this.dimensions.padding)
+			.attr('width', width)
+			.attr('height', maxHeight)
+			.style('fill', '#006AC6')
+			.append('svg:title')
+			.text('Non-Verified');
+
+		let verified = dataset.filter((d) => d.verified);
+		console.log(verified);
+
+		yearGroup.append('rect')
+			.attr('x', xPos)
+			.attr('y', this.dimensions.padding)
+			.attr('width', width)
+			.attr('height', (verified.length / dataset.length) * maxHeight)
+			.style('fill', '#0081F1')
+			.append('svg:title')
+			.text('Verified');
 	}
 
 	/** Helper method. Draws a simple bar for the year provided. */

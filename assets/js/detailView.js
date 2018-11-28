@@ -112,10 +112,13 @@ class DetailView {
 			this.drawStarsBar();
 		} else if (category === 'verified') {
 			header.text('Verified Reviews');
+			this.drawVerifiedBar();
 		} else if (category === 'year') {
 			header.text('Reviews per year');
+			this.drawReviewsBar();
 		} else if (category === 'isEBook') {
 			header.text('Dead Tree vs. eBook')
+			this.drawEBookBar();
 		}
 
 		this.histogram.drawCategory(this.selectedCategory);
@@ -158,7 +161,24 @@ class DetailView {
 
 	/** Helper method. Draws the verified bar.*/
 	drawVerifiedBar() {
+		this.barSvg.selectAll('rect').remove();
+		this.barSvg.append('rect')
+			.attr('x', 0)
+			.attr('y', 0)
+			.attr('width', this.dimensions.bars.width)
+			.attr('height', this.dimensions.bars.height)
+			.style('fill', '#006AC6')
+			.append('svg:title')
+			.text('Non-Verified');
 
+		this.barSvg.append('rect')
+			.attr('x', 0)
+			.attr('y', 0)
+			.attr('width', (this.book.verified_reviews / this.book.total_reviews) * this.dimensions.bars.width)
+			.attr('height', this.dimensions.bars.height)
+			.style('fill', '#0081F1')
+			.append('svg:title')
+			.text('Verified');
 	}
 
 	/** Helper method. Draws the reviews per year bar.*/
