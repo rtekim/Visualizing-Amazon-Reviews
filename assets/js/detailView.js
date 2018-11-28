@@ -3,8 +3,6 @@
  *
  * Class handling the detail view, showing information about the books.
  *
- * TODO: Visualizations of the various pieces of data we have
- * TODO: Word cloud. Put the data in a separate file and then the detail view will grab and use that instead.
  * TODO: Close button
  */
 class DetailView {
@@ -201,7 +199,6 @@ class DetailView {
 
 	/** Helper method. Draws the eBook bar. */
 	drawEBookBar() {
-		console.log(this.book);
 		this.barSvg.append('rect')
 			.attr('x', 0)
 			.attr('y', 0)
@@ -245,8 +242,6 @@ class DetailView {
 				foundWords.push(d.text);
 			}
 		})
-
-		console.log(set);
 
 		return set;
 	}
