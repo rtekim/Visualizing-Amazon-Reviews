@@ -1,12 +1,12 @@
 class Table {
-    constructor(books, overseer) {
-        overseer.table = this;
-        this.overseer = overseer;
+    constructor(books, detailedView) {
+        this.table = this;
+        this.detailedView = detailedView;
         
         this.tableElements = books;
 
         this.tableHeaders = ["total_reviews", "book_reviews", "ebook_reviews", "verified_reviews", "five_stars",
-            "four_stars", "three_stars", "two_stars", "one_star", "average_helpful"];
+            "four_stars", "three_stars", "two_stars", "one_star"];
 
         this.cell = {
             "width": 70,
@@ -97,6 +97,7 @@ class Table {
     }
 
     createTable() {
+        let that = this;
         let tr = d3.select("tbody").selectAll("tr")
             .data(this.tableElements);
 
@@ -108,7 +109,10 @@ class Table {
 
         tr = trEnter.merge(tr);
         tr.select("th").text(d => d.title).classed("title",true);
-
+        tr.on("click", function(d) {
+            that.detailedView.update(d,d3.select(".modal-body"));
+            $('#exampleModal').modal('show');
+        })
 
         let td = tr.selectAll("td")
             .data(d => {

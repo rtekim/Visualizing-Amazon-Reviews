@@ -137,10 +137,6 @@ body, a {
     height: 550px;
 }
 
-/*
- * For the detail view
- */
-
-.stars {
-    column-width: 15px;
+.histogram-year-label {
+    font: bold 12px sans-serif;
 }
