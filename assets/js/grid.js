@@ -1,9 +1,10 @@
 class Grid {
 
-    constructor(books) {
+    constructor(books, detailedView) {
 
         this.grid = d3.select("#bookGrid").classed("grid", true);
         this.books = books;
+        this.detailedView = detailedView;
     }
 
     addBooks() {
@@ -12,11 +13,14 @@ class Grid {
             console.log(d.title);
             return `url("assets/images/${d.title}.jpeg")`;
         });
+
+        let content = book.append().append("div").attr("class", "bookContent");
         book.attr("class", d => {
             return this.chooseTileSize(d["total_reviews"])
         });
         book.classed("book", true);
-        book.on("click", function (d, i) {
+        let that = this;
+        book.on("click", function (d) {
             if (this.className.split(' ').indexOf('open') > -1) {
                 d3.select(this).classed("open", false);
             } else {
@@ -38,6 +42,8 @@ class Grid {
                 d3.select(this).classed("open", true);
                 d3.select(this).style("grid-row-start", thisRow)
                 d3.select(this).style("grid-column-start", thisColumn)
+                console.log(d);
+                that.detailedView.update(d,d3.select(this))
             }
         });
     }

@@ -46,7 +46,7 @@ d3.csv("assets/dataset/books_overview.csv").then(data => {
 	data.columns = columns;
 
 	detailView = new DetailView(overseer);
-    grid = new Grid(data);
+    grid = new Grid(data, detailView);
     scatterplot = new Scatterplot(data, overseer);
     table = new Table(data, detailView);
     grid.addBooks();

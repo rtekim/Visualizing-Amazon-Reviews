@@ -21,7 +21,6 @@ body, a {
     background-size: cover;
     position: relative;
 }
-
 .size1 {
     grid-column-end: span 2;
     grid-row-end: span 1;
@@ -43,8 +42,10 @@ body, a {
     grid-row-end: span 4;
 }
 .open {
-    grid-column-end: span 5;
-    grid-row-end: span 4;
+    grid-column-end: span 12;
+    grid-row-end: span 5;
+    background-image: none !important;
+    background-color: white;
 }
 .tab-content>.active {
     display: grid;
@@ -139,4 +140,8 @@ body, a {
 
 .histogram-year-label {
     font: bold 12px sans-serif;
+}
+
+.modal-lg {
+    max-width: 80% !important;
 }
