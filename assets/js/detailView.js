@@ -245,7 +245,7 @@ class DetailView {
 	extractWords(words) {
 		let newWords = words.map((d) => {
 			let freq = words.filter((w) => w === d).length;
-			return { text: d, size: freq + Math.random() * 90};
+			return { text: d, size: freq + Math.random() * 90 };
 		});
 
 		let set = [];

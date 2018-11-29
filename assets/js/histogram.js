@@ -2,8 +2,6 @@
  * histogram.js
  *
  * Histogram to be included on the detail view.
- *
- * TODO: Include lines for the bars along with measurements
  */
 class Histogram {
 
@@ -30,19 +28,24 @@ class Histogram {
 		this.rectGroup = this.svg.append('g')
 			.attr('transform', 'translate(15, ' + this.dimensions.height + ') scale(1, -1)');
 
+		let separations = 20;
+		for(let i = 0; i < separations; i++) {
+			let yPos = (i / separations) * (this.dimensions.height - this.dimensions.padding) + this.dimensions.padding;
+
+			this.rectGroup.append('line')
+				.attr('x1', 0)
+				.attr('x2', this.dimensions.width)
+				.attr('y1', yPos)
+				.attr('y2', yPos)
+				.style('stroke', 'black');
+		}
+
 		this.rectGroup.selectAll('g')
 			.data(this.allYears)
 			.enter()
 			.append('g')
 			.attr('id', (d) => { return 'year-group-' + d; })
 			.classed('histogram-year-group', true);
-
-		this.rectGroup.append('line')
-			.attr('x1', 0)
-			.attr('y1', this.dimensions.padding)
-			.attr('x2', this.dimensions.width)
-			.attr('y2', this.dimensions.padding)
-			.style('stroke', 'black');
 
 		this.allYears.forEach((year) => {
 			let info = this.getBarsDrawInfo(year, []);
