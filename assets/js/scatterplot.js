@@ -2,6 +2,8 @@
  * Scatterplot class.
  *
  * Handles all of the DOM manipulation and stuff for the scatterplot.
+ *
+ * TODO: Put labels on the parts of the axes
  */
 class Scatterplot {
 

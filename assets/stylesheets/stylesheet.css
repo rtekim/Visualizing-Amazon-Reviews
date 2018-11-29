@@ -138,6 +138,11 @@ body, a {
     height: 550px;
 }
 
+#detail-view-close-button {
+    position: relative;
+    float: right;
+}
+
 .histogram-year-label {
     font: bold 12px sans-serif;
 }

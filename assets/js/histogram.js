@@ -3,7 +3,8 @@
  *
  * Histogram to be included on the detail view.
  *
- * TODO: Fix the orientation of each of the bars.
+ * TODO: Include lines for the bars along with measurements
+ * TODO: Mouse over the separate bars should indicate how many reviews there are in that category
  */
 class Histogram {
 

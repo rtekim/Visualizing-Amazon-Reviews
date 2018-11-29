@@ -4,6 +4,7 @@
  * Class handling the detail view, showing information about the books.
  *
  * TODO: Close button
+ * TODO: Mouse over the separate bars should indicate how many reviews there are in that category
  */
 class DetailView {
 	constructor(overseer) {
@@ -102,6 +103,22 @@ class DetailView {
 						let selection = this.options[this.selectedIndex].value;
 						that.showCategory(selection);
 					});
+
+				this.detailViewHolder.append('div')
+					.style('overflow', 'auto')
+					.append('button')
+					.attr('id', 'detail-view-close-button')
+					.classed('btn btn-primary', true)
+					.style('float', 'right')
+					.append('span')
+					.classed('glyphicon glyphicon-ok', true)
+					.text('Ok');
+
+				d3.select('#detail-view-close-button')
+					.on('click', () => {
+						this.close();
+						this.overseer.detailViewClosed();
+					})
 			})
 		});
 	}
