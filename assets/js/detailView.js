@@ -2,9 +2,6 @@
  * detailView.js
  *
  * Class handling the detail view, showing information about the books.
- *
- * TODO: Close button
- * TODO: Mouse over the separate bars should indicate how many reviews there are in that category
  */
 class DetailView {
 	constructor(overseer) {
@@ -185,7 +182,7 @@ class DetailView {
 				return 'rgb(' + r + ', ' + g + ', 0)';
 			})
 			.append('svg:title')
-			.text((d, i) => { return (i + 1) + ' stars'; });
+			.text((d, i) => { return (i + 1) + ' stars - ' + d + ' reviews'; });
 	}
 
 	/** Helper method. Draws the verified bar.*/
@@ -197,7 +194,7 @@ class DetailView {
 			.attr('height', this.dimensions.bars.height)
 			.style('fill', '#006AC6')
 			.append('svg:title')
-			.text('Non-Verified');
+			.text('Non-Verified - ' + (this.book.total_reviews - this.book.verified_reviews) + ' reviews');
 
 		this.barSvg.append('rect')
 			.attr('x', 0)
@@ -206,7 +203,7 @@ class DetailView {
 			.attr('height', this.dimensions.bars.height)
 			.style('fill', '#0081F1')
 			.append('svg:title')
-			.text('Verified');
+			.text('Verified - ' + this.book.verified_reviews + ' reviews');
 	}
 
 	/** Helper method. Draws the reviews per year bar.*/
@@ -223,7 +220,7 @@ class DetailView {
 			.attr('height', this.dimensions.bars.height)
 			.style('fill', '#CA6C00')
 			.append('svg:title')
-			.text('eBook');
+			.text('Dead Tree - ' + (this.book.total_reviews - this.book.ebook_reviews) + ' reviews');
 
 		this.barSvg.append('rect')
 			.attr('x', 0)
@@ -232,7 +229,7 @@ class DetailView {
 			.attr('height', this.dimensions.bars.height)
 			.style('fill', '#E67A00')
 			.append('svg:title')
-			.text('Dead Tree');
+			.text('eBook - ' + this.book.ebook_reviews + ' reviews');
 	}
 
 	/** Helper method. Returns true if a book is shown. */

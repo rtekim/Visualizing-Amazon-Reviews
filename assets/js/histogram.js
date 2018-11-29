@@ -4,7 +4,6 @@
  * Histogram to be included on the detail view.
  *
  * TODO: Include lines for the bars along with measurements
- * TODO: Mouse over the separate bars should indicate how many reviews there are in that category
  */
 class Histogram {
 
@@ -123,7 +122,7 @@ class Histogram {
 				return 'rgb(' + r + ', ' + g + ', 0)';
 			})
 			.append('svg:title')
-			.text((d, i) => { return (i + 1) + ' stars' });
+			.text((d, i) => { return d + ' reviews'});
 	}
 
 	/** Helper method. Draws the stacked bar graph for verified reviews. */
@@ -137,7 +136,7 @@ class Histogram {
 			.attr('height', info.maxHeight)
 			.style('fill', '#006AC6')
 			.append('svg:title')
-			.text('Non-Verified');
+			.text(dataset.filter((d) => !d.verified).length + ' reviews');
 
 		let verified = dataset.filter((d) => d.verified);
 
@@ -148,7 +147,7 @@ class Histogram {
 			.attr('height', (verified.length / dataset.length) * info.maxHeight)
 			.style('fill', '#0081F1')
 			.append('svg:title')
-			.text('Verified');
+			.text(verified.length + ' reviews');
 	}
 
 	/** Helper method. Draws a simple bar for the year provided. */
@@ -160,7 +159,9 @@ class Histogram {
 			.attr('y', this.dimensions.padding)
 			.attr('width', info.width)
 			.attr('height', info.maxHeight)
-			.style('fill', '#00B99F');
+			.style('fill', '#00B99F')
+			.append('svg:title')
+			.text(dataset.length + ' reviews');
 	}
 
 	/** Helper method. Draws the stacked bar graph for ebook/regular book reviews. */
@@ -174,7 +175,7 @@ class Histogram {
 			.attr('height', info.maxHeight)
 			.style('fill', '#CA6C00')
 			.append('svg:title')
-			.text('eBook');
+			.text(dataset.filter((d) => !d.isEBook).length + ' reviews');
 
 		let eBook = dataset.filter((d) => d.isEBook);
 
@@ -185,7 +186,7 @@ class Histogram {
 			.attr('height', (eBook.length / dataset.length) * info.maxHeight)
 			.style('fill', '#E67A00')
 			.append('svg:title')
-			.text('Dead Tree');
+			.text(eBook.length + ' reviews');
 	}
 
 	/** Helper method. Grabs data for the year provided to help draw the various year bars. */
