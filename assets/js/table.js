@@ -53,7 +53,7 @@ class Table {
             .range(['#feebe2', '#000000']);
 
         this.starsScale = d3.scaleLinear()
-            .range([0, this.cell.height - this.cell.buffer]);
+            .range([this.cell.height - this.cell.buffer, this.cell.buffer]);
 
         this.starsScale.domain([0, 1]);
         this.aggregateStarsColorScale.domain(this.starsScale.domain());
@@ -74,16 +74,23 @@ class Table {
                 invert = false;
             }
 
-            this.tableElements = this.tableElements.sort((a, b) =>{
+            this.tableElements = this.tableElements.sort((a, b) => {
                 if (invert) {
                     let temp = b;
                     b = a;
                     a = temp;
                 }
+                if (k === "total_reviews"){
                     if (b[k] === a[k]) {
                         return a.key < b.key ? -1 : 1
                     } else
                         return b[k] - a[k];
+            } else {
+                    if (b[k]/b["total_reviews"] === a[k]/a["total_reviews"]) {
+                        return a.key < b.key ? -1 : 1
+                    } else
+                        return b[k]/b["total_reviews"] - a[k]/a["total_reviews"];
+                }
             });
             this.createTable();
         });
@@ -133,7 +140,7 @@ class Table {
 
         let svg = td.select("svg")
             .attr("width", d => d.vis === 'bars' ? this.cell.width : 2 * this.cell.width)
-            .attr("height", this.cell.height - this.cell.buffer);
+            .attr("height", this.cell.height);
 
         let totalReviewsColumnsEnter = svgEnter.filter(d => {
             return d.column === "total_reviews";
@@ -146,12 +153,30 @@ class Table {
         totalReviewsColumnsEnter.append("rect");
         totalReviewsColumns.select("rect")
             .attr("height", this.bar.height)
-            .attr("width", d => {
-                return this.reviewsTotalScale(d.value);
-            }).attr("fill", d => {
+            .attr("width", d => d.value>0 ? this.reviewsTotalScale(d.value):0)
+    .attr("fill", d => {
             return this.aggregateTotalColorScale(d.value);
         });
 
+        totalReviewsColumnsEnter.append("text");
+        totalReviewsColumns.select("text")
+            .attr("x", d => d.value ? this.reviewsTotalScale(d.value) : 0)
+            .attr("y", this.cell.height / 2)
+            .attr("dy", ".35em");
+
+        totalReviewsColumns.select("text")
+            .attr("dx", d => {
+                return d.value > 2000 ? 10 : 40
+            })
+            .attr("text-anchor", d => {
+                return d.value > 0 ? 'end' : 'start'
+            });
+
+        totalReviewsColumns.select("text")
+            .classed('label', true)
+            .text(d => {
+                return d.value;
+            });
 
         let bookEbookColumnsEnter = svgEnter.filter(d => {
             return d.column === "book_reviews" || d.column === "ebook_reviews";
@@ -164,9 +189,8 @@ class Table {
         bookEbookColumnsEnter.append("rect");
         bookEbookColumns.select("rect")
             .attr("height", this.bar.height)
-            .attr("width", d => {
-                return this.reviewsbookEbookScale(d.value / d.total);
-            }).attr("fill", d => {
+            .attr("width", d => d.value>0 ? this.reviewsbookEbookScale(d.value / d.total):0)
+    .attr("fill", d => {
             return this.aggregatebookEbookColorScale(d.value / d.total);
         });
 
@@ -181,9 +205,8 @@ class Table {
         verifiedColumnsEnter.append("rect");
         verifiedColumns.select("rect")
             .attr("height", this.bar.height)
-            .attr("width", d => {
-                return this.verifiedScale(d.value / d.total);
-            }).attr("fill", d => {
+            .attr("width", d => d.value>0 ? this.verifiedScale(d.value / d.total):0)
+            .attr("fill", d => {
             return this.aggregateVerifiedColorScale(d.value / d.total);
         });
 
@@ -195,61 +218,14 @@ class Table {
             return d.column === "five_stars" || d.column === "four_stars" || d.column === "three_stars" || d.column === "two_stars" || d.column === "one_star";
         });
 
-        starsColumnsEnter.append("rect");
+        starsColumnsEnter.append("g").attr('transform', 'translate(0, 70) scale(1, -1)').append("rect");
         starsColumns.select("rect").attr("width", 10)
-            .attr("height", d => {
-                return this.starsScale(d.value / d.total);
+            .attr("y",d=>{
+               return d.value/d.total;
             })
+            .attr("height", d => d.value>0? this.cell.height-this.starsScale(d.value / d.total):0)
             .attr("fill", d => {
                 return this.aggregateStarsColorScale(d.value / d.total);
             });
-
-        // Dragging Rows
-        // d3.selectAll("tr").call(d3.drag()
-        //     .origin(function(d) {
-        //         return {y: y(d[0].y)};
-        //     })
-        //     .on("dragstart", function(d) {
-        //
-        //         trigger = d3.event.sourceEvent.target.className.baseVal;
-        //
-        //         if (trigger == "title") {
-        //             d3.selectAll("td").attr("opacity", 1);
-        //             dragging[d[0].y] = y(d[0].y);
-        //
-        //             // Move the row that is moving on the front
-        //             sel = d3.select(this);
-        //             sel.moveToFront();
-        //         }
-        //     })
-        //     .on("drag", function(d) {
-        //         // Hide what is in the back
-        //
-        //         if (trigger == "title") {
-        //
-        //             //d3.selectAll(".cellcolumn").attr("opacity", 0);
-        //
-        //             dragging[d[0].y] = Math.min(height, Math.max(0, d3.event.y));
-        //             orders.name.sort(function(a, b) { return position(a) - position(b); });
-        //             y.domain(orders.name);
-        //
-        //             d3.selectAll("tr").attr("transform", function(d, i) {
-        //                 return "translate(0," + position(d[0].y) + ")";
-        //             });
-        //         }
-        //     })
-        //     .on("dragend", function(d) {
-        //
-        //         if (trigger == "title") {
-        //             delete dragging[d[0].y];
-        //             transition(d3.select(this)).attr("transform", "translate(0," + y(d[0].y) + ")");
-        //
-        //             d3.selectAll("tr").each(function(d) {
-        //                 d3.select(this).selectAll("td").attr("x", function(d) {
-        //                     return -y(d.y)-90; });
-        //             });
-        //         }
-        //     })
-        // );
     }
 }
