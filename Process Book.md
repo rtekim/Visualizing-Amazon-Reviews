@@ -3,6 +3,7 @@
 * Kimberly Williamson; u6004461@utah.edu; u6004461
 
 Project Repository: https://github.com/rtekim/Visualizing-Amazon-Reviews
+Video Presentation: https://youtu.be/xRbZPAqfv2w
 
 ## Background and Motivation
 
