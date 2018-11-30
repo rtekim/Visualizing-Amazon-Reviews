@@ -1,5 +1,6 @@
 class Grid {
-
+//Constructor to set up book grid
+    // Code used from https://medium.com/@andybarefoot/d3-and-css-grid-with-expanding-content-3c8aaf783cb1
     constructor(books, detailedView) {
 
         this.grid = d3.select("#bookGrid").classed("grid", true);
@@ -9,17 +10,20 @@ class Grid {
 
     addBooks() {
         let book = this.grid.selectAll("div").data(this.books).enter().append("div");
+        //Set the background image to the cover of the book
         book.style("background-image", d => {
-            console.log(d.title);
             return `url("assets/images/${d.title}.jpeg")`;
         });
 
         let content = book.append().append("div").attr("class", "bookContent");
+        //Choose the size fo the cover
         book.attr("class", d => {
-            return this.chooseTileSize(d["total_reviews"])
+            return this.chooseCoverSize(d["total_reviews"])
         });
         book.classed("book", true);
         let that = this;
+        //Set the grid so that the covers are nicely packed in the screen area. Also keeps the covers in the same position
+        // when the cover is expanded.
         book.on("click", function (d) {
             if (this.className.split(' ').indexOf('open') > -1) {
                 d3.select(this).classed("open", false);
@@ -42,13 +46,12 @@ class Grid {
                 d3.select(this).classed("open", true);
                 d3.select(this).style("grid-row-start", thisRow)
                 d3.select(this).style("grid-column-start", thisColumn)
-                console.log(d);
                 that.detailedView.update(d,d3.select(this))
             }
         });
     }
 
-    chooseTileSize(totalReviews) {
+    chooseCoverSize(totalReviews) {
         if (totalReviews > 1000) {
             return "size5"
         } else if (totalReviews > 800) {

@@ -29,7 +29,7 @@ We are using the Amazon Customer Reviews Dataset, specifically the books and ebo
 
 We will need to filter out the Amazon Customer Reviews Dataset to only include book titles that are on the Top 100 Novels list.
 
-## Visualization Design
+## Proposed Visualization Design
 
 ### Sketch 1
 
@@ -99,15 +99,7 @@ The following is the proposed project schedule, week by week:
 	* Detail view is complete
 	* All that is left is polishing
 
-## Design Evolution
-
-Between our peer feedback session and the original implementation of our scatterplot, we have decided to only plot the books instead of the reviews. We determined it would be too cluttered and would not give us much additional data. We have decided to leave the detailed reviews to the detailed view. 
-We also decided to add another view that gives users another way to search for the books. We determined the table was too big for a user who might be looking for specific books. So we added a view that shows the book covers for each book and allows them to sort and size the covers based on customizable fields. When a user clicks on a cover, the detailed view is displayed. We got inspiration from this visualization https://medium.com/@andybarefoot/d3-and-css-grid-with-expanding-content-3c8aaf783cb1. Sketches of the new designed are below.
-We are also planning on interaction between the scatterplot, table and book grid. Once a book is selected on any view, the other two views will highlight the selected book also.
-
-![Overview](figs/sketch4.jpg)
-
-## Updated Schedule
+## Updated Schedule (Milestone 1)
 
 * 16 November
 	* Scatterplot is completed, with all inputs available in promised channels
@@ -119,3 +111,54 @@ We are also planning on interaction between the scatterplot, table and book grid
 	* Detail view is complete
 	* Interaction between views is completed
 	* All that is left is polishing
+
+## Exploratory Data Analysis
+
+Initially we looked at both the scatterplot and the table to gain some insights about our data. One of the first things we found was how spread out our data was in terms of reviews. The *Great Gatsby* had the maximum review count at 4740, while the *A Dance to the Music of Time* and *Play It As It Lays* had a minimum review count of 1. This caused some problems in our scales which led to us changing all of the table scales, with the exception of **Total Reviews**, to percentage scales. Switching to percentage scales has allowed us to better show the data. 
+
+## Design Evolution
+
+Between our peer feedback session and the original implementation of our scatterplot, we have decided to only plot the books instead of the reviews. We determined it would be too cluttered and would not give us much additional data. We have decided to leave the detailed reviews to the detailed view. 
+We also decided to add another view that gives users another way to search for the books. We determined the table was too big for a user who might be looking for specific books. So we added a view that shows the book covers for each book and allows them to sort and size the covers based on customizable fields. When a user clicks on a cover, the detailed view is displayed. We got inspiration from this visualization https://medium.com/@andybarefoot/d3-and-css-grid-with-expanding-content-3c8aaf783cb1. Sketches of the new designed are below.
+We are also planning on interaction between the scatterplot, table and book grid. Once a book is selected on any view, the other two views will highlight the selected book also.
+
+![Overview](figs/sketch4.jpg)
+
+## Implementation
+
+With our final design we created 3 high-level visualizations, that all can be drilled down into a more detailed view.
+
+### Scatterplot
+
+![Overview](figs/Scatterplot.png)
+
+By hovering over a point on the scatterplot(**A**), a quick summary is displayed to the right(**B**). If a user clicks on a point in the scatterplot(**A**), then the detailed view is added to the bottom of the scatterplot(**D**). The drop-down menus (**C**) allows the users to control what categories are used to plot the data.
+
+### Table
+
+![Overview](figs/Table.png)
+
+As the user hovers around to different rows, the table row changes color to provide feedback to the user(**A**). By clicking on the headers in the table, the user can sort the column(**B**). With the exception of the Total Reviews column, all other columns are using the percentage of Total Reviews for the sort function. 
+
+### Book Grid
+
+![Overview](figs/BookGrid.png)
+
+The book grid is displaying all of the book covers. The size of the cover is determined by the Total Reviews(**A**). When a user clicks on a book cover, the detailed view is shown(**B**).
+
+### Detailed View
+
+![Overview](figs/DetailedView.png)
+
+While our other visualizations attempt to summarize the dataset as a whole, the detailed view visualization gives the specifics for each book. The book name and cover are displayed(**A**), along with a word cloud and a histogram. The word cloud(**B**) was created by using the customer reviews. The user can change the histogram by selecting categories in the drop down menus(**C**). 
+
+## Evaluation
+
+We learned that having a book on a Top 100 lists does not always correlate to a lot of reviews on Amazon. We knew there would be more popular books, but did not expect for several of them to have less than 10 reviews. When we first formed our questions we envisioned a website that could be used by researchers to make sense of reviewing patterns. We asked questions that would lead to summary answers. Through our design and implementation process, we found that these visualizations would be more helpful or a user looking to find their next book. They could use the visualizations to find books similar to other books they have liked. They could could browse the detail views to find words that excited them in the word cloud. 
+
+As we were implementing our designs, there were some areas of improvement we thought should be done if we had more time.
+* Filtering: Adding filtering to only show certain reviews. For example: Only show reviews from verified purchases.
+* More Data Sources: We used Amazons dataset for the reviews, but it would be interesting to add in other sources such as Goodreads.
+* More Books: Use multiple Top 100 lists.
+
+Overall, we are happy with the visualizations we were able to complete.
