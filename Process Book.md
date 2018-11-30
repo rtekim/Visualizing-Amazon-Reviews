@@ -126,4 +126,39 @@ We are also planning on interaction between the scatterplot, table and book grid
 
 ## Implementation
 
-With our final design we created 3 high-level visualizations, that all can be drilled down into a more detailed view. 
+With our final design we created 3 high-level visualizations, that all can be drilled down into a more detailed view.
+
+### Scatterplot
+
+![Overview](figs/Scatterplot.png)
+
+By hovering over a point on the scatterplot(**A**), a quick summary is displayed to the right(**B**). If a user clicks on a point in the scatterplot(**A**), then the detailed view is added to the bottom of the scatterplot(**D**). The drop-down menus (**C**) allows the users to control what categories are used to plot the data.
+
+### Table
+
+![Overview](figs/Table.png)
+
+As the user hovers around to different rows, the table row changes color to provide feedback to the user(**A**). By clicking on the headers in the table, the user can sort the column(**B**). With the exception of the Total Reviews column, all other columns are using the percentage of Total Reviews for the sort function. 
+
+### Book Grid
+
+![Overview](figs/BookGrid.png)
+
+The book grid is displaying all of the book covers. The size of the cover is determined by the Total Reviews(**A**). When a user clicks on a book cover, the detailed view is shown(**B**).
+
+### Detailed View
+
+![Overview](figs/DetailedView.png)
+
+While our other visualizations attempt to summarize the dataset as a whole, the detailed view visualization gives the specifics for each book. The book name and cover are displayed(**A**), along with a word cloud and a historgram. The word cloud(**B**) was created by using the customer reviews. The user can change the histogram by selecting categories in the drop down menus(**C**). 
+
+## Evaluation
+
+We learned that having a book on a Top 100 lists does not always correlate to a lot of reviews on Amazon. We knew there would be more popular books, but did not expect for several of them to have less than 10 reviews. When we first formed our questions we envisoned a website that could be used by researchers to make sense of reviewing patterns. We asked questions that would lead to summary answers. Through our design and implementation process, we found that these visualizations would be more helpful or a user looking to find their next book. They could use the visualizations to find books similar to other books they have liked. They could could browse the detail views to find words that excited them in the word cloud. 
+
+As we were implementing our designs, there were some areas of improvement we thought should be done if we had more time.
+* Filtering: Adding filtering to only show certain reviews. For example: Only show reviews from verified purchases.
+* More Data Sources: We used Amazons dataset for the reviews, but it would be interesting to add in other sources such as Goodreads.
+* More Books: Use multiple Top 100 lists.
+
+Overall, we are happy with the visualizations we were able to complete.
