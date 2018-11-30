@@ -29,7 +29,7 @@ We are using the Amazon Customer Reviews Dataset, specifically the books and ebo
 
 We will need to filter out the Amazon Customer Reviews Dataset to only include book titles that are on the Top 100 Novels list.
 
-## Visualization Design
+## Proposed Visualization Design
 
 ### Sketch 1
 
@@ -99,15 +99,7 @@ The following is the proposed project schedule, week by week:
 	* Detail view is complete
 	* All that is left is polishing
 
-## Design Evolution
-
-Between our peer feedback session and the original implementation of our scatterplot, we have decided to only plot the books instead of the reviews. We determined it would be too cluttered and would not give us much additional data. We have decided to leave the detailed reviews to the detailed view. 
-We also decided to add another view that gives users another way to search for the books. We determined the table was too big for a user who might be looking for specific books. So we added a view that shows the book covers for each book and allows them to sort and size the covers based on customizable fields. When a user clicks on a cover, the detailed view is displayed. We got inspiration from this visualization https://medium.com/@andybarefoot/d3-and-css-grid-with-expanding-content-3c8aaf783cb1. Sketches of the new designed are below.
-We are also planning on interaction between the scatterplot, table and book grid. Once a book is selected on any view, the other two views will highlight the selected book also.
-
-![Overview](figs/sketch4.jpg)
-
-## Updated Schedule
+## Updated Schedule (Milestone 1)
 
 * 16 November
 	* Scatterplot is completed, with all inputs available in promised channels
@@ -119,3 +111,19 @@ We are also planning on interaction between the scatterplot, table and book grid
 	* Detail view is complete
 	* Interaction between views is completed
 	* All that is left is polishing
+
+## Exploratory Data Analysis
+
+Initially we looked at both the scatterplot and the table to gain some insights about our data. One of the first things we found was how spread out our data was in terms of reviews. The *Great Gatsby* had the maxium review count at 4740, while the *A Dance to the Music of Time* and *Play It As It Lays* had a minium review count of 1. This caused some problems in our scales which led to us changing all of the table scales, with the exception of **Total Reviews**, to percentage scales. Switching to percentage scales has allowed us to better show the data. 
+
+## Design Evolution
+
+Between our peer feedback session and the original implementation of our scatterplot, we have decided to only plot the books instead of the reviews. We determined it would be too cluttered and would not give us much additional data. We have decided to leave the detailed reviews to the detailed view. 
+We also decided to add another view that gives users another way to search for the books. We determined the table was too big for a user who might be looking for specific books. So we added a view that shows the book covers for each book and allows them to sort and size the covers based on customizable fields. When a user clicks on a cover, the detailed view is displayed. We got inspiration from this visualization https://medium.com/@andybarefoot/d3-and-css-grid-with-expanding-content-3c8aaf783cb1. Sketches of the new designed are below.
+We are also planning on interaction between the scatterplot, table and book grid. Once a book is selected on any view, the other two views will highlight the selected book also.
+
+![Overview](figs/sketch4.jpg)
+
+## Implementation
+
+With our final design we created 3 high-level visualizations, that all can be drilled down into a more detailed view. 
