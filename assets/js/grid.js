@@ -12,7 +12,6 @@ class Grid {
         let book = this.grid.selectAll("div").data(this.books).enter().append("div");
         //Set the background image to the cover of the book
         book.style("background-image", d => {
-            console.log(d.title);
             return `url("assets/images/${d.title}.jpeg")`;
         });
 
@@ -47,7 +46,6 @@ class Grid {
                 d3.select(this).classed("open", true);
                 d3.select(this).style("grid-row-start", thisRow)
                 d3.select(this).style("grid-column-start", thisColumn)
-                console.log(d);
                 that.detailedView.update(d,d3.select(this))
             }
         });
