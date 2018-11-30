@@ -114,7 +114,7 @@ The following is the proposed project schedule, week by week:
 
 ## Exploratory Data Analysis
 
-Initially we looked at both the scatterplot and the table to gain some insights about our data. One of the first things we found was how spread out our data was in terms of reviews. The *Great Gatsby* had the maxium review count at 4740, while the *A Dance to the Music of Time* and *Play It As It Lays* had a minium review count of 1. This caused some problems in our scales which led to us changing all of the table scales, with the exception of **Total Reviews**, to percentage scales. Switching to percentage scales has allowed us to better show the data. 
+Initially we looked at both the scatterplot and the table to gain some insights about our data. One of the first things we found was how spread out our data was in terms of reviews. The *Great Gatsby* had the maximum review count at 4740, while the *A Dance to the Music of Time* and *Play It As It Lays* had a minimum review count of 1. This caused some problems in our scales which led to us changing all of the table scales, with the exception of **Total Reviews**, to percentage scales. Switching to percentage scales has allowed us to better show the data. 
 
 ## Design Evolution
 
@@ -150,11 +150,11 @@ The book grid is displaying all of the book covers. The size of the cover is det
 
 ![Overview](figs/DetailedView.png)
 
-While our other visualizations attempt to summarize the dataset as a whole, the detailed view visualization gives the specifics for each book. The book name and cover are displayed(**A**), along with a word cloud and a historgram. The word cloud(**B**) was created by using the customer reviews. The user can change the histogram by selecting categories in the drop down menus(**C**). 
+While our other visualizations attempt to summarize the dataset as a whole, the detailed view visualization gives the specifics for each book. The book name and cover are displayed(**A**), along with a word cloud and a histogram. The word cloud(**B**) was created by using the customer reviews. The user can change the histogram by selecting categories in the drop down menus(**C**). 
 
 ## Evaluation
 
-We learned that having a book on a Top 100 lists does not always correlate to a lot of reviews on Amazon. We knew there would be more popular books, but did not expect for several of them to have less than 10 reviews. When we first formed our questions we envisoned a website that could be used by researchers to make sense of reviewing patterns. We asked questions that would lead to summary answers. Through our design and implementation process, we found that these visualizations would be more helpful or a user looking to find their next book. They could use the visualizations to find books similar to other books they have liked. They could could browse the detail views to find words that excited them in the word cloud. 
+We learned that having a book on a Top 100 lists does not always correlate to a lot of reviews on Amazon. We knew there would be more popular books, but did not expect for several of them to have less than 10 reviews. When we first formed our questions we envisioned a website that could be used by researchers to make sense of reviewing patterns. We asked questions that would lead to summary answers. Through our design and implementation process, we found that these visualizations would be more helpful or a user looking to find their next book. They could use the visualizations to find books similar to other books they have liked. They could could browse the detail views to find words that excited them in the word cloud. 
 
 As we were implementing our designs, there were some areas of improvement we thought should be done if we had more time.
 * Filtering: Adding filtering to only show certain reviews. For example: Only show reviews from verified purchases.

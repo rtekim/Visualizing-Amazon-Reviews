@@ -1,4 +1,5 @@
 class Table {
+    // Constructor to set up table elements
     constructor(books, detailedView) {
         this.table = this;
         this.detailedView = detailedView;
@@ -21,6 +22,7 @@ class Table {
         this.createScales();
     }
 
+    // Setup for scales needed for each column
     createScales() {
         this.aggregateTotalColorScale = d3.scaleLinear()
             .range(['#feebe2', '#0000FF']);
@@ -117,6 +119,7 @@ class Table {
         tr = trEnter.merge(tr);
         tr.select("th").text(d => d.title).classed("title",true);
         tr.on("click", function(d) {
+            //Show the detailed view in a Modal
             that.detailedView.update(d,d3.select(".modal-body"));
             $('#exampleModal').modal('show');
         })
