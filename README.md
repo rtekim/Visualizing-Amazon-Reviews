@@ -8,7 +8,7 @@ https://rtekim.github.io/Visualizing-Amazon-Reviews
 
 ## Screencast
 
-
+https://youtu.be/xRbZPAqfv2w
 
 ## Code Structure
     Visualizing-Amazon-Reviews/
